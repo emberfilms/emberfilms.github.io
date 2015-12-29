@@ -1,0 +1,20 @@
+title: Jekyll, Gulp, Bower, Sass & Minification
+description: Template generator for Jekyll etc.
+baseurl: https://www.website.com
+google-analytics: GA-XXXX
+
+markdown: redcarpet
+
+exclude:
+    - .tmp
+    - dev
+    - dist
+    - node_modules
+    - gulpfile.js
+    - package.json
+    - bower.json
+    - bower_components
+    - gulpfile.babel.js
+    - README.md
+    - editorconfig
+    - scripts

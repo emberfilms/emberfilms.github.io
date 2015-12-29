@@ -1,29 +1,13 @@
-<html><head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
-    <title>Ember Films - 2016 Digital Playground</title>
-    
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
+---
+layout: default
+title: Your New Jekyll Site
+---
 
-      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
-
-      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
-      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
-
-    </style>
-  </head>
-  <body>
-
-    <div class="container">
-      <h1>Shhh</h1>
-      <p><strong>Coming soon</strong></p>
-      <p>This is just a holding page.</p>
-    </div>
-  
-
-</body></html>
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "jekyll-bower-browser-sync",
+  "description": "A starter project including full setup for Jekyll, GulpJS, SASS & BrowserSync",
+  "main": "gulpfile.js",
+  "authors": [
+    "Owen Melbourne"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bower-webfontloader": "~1.6.6",
+    "loadcss": "~0.2.4",
+    "modernizr": "~3.2.0"
+  }
+}
