@@ -241,7 +241,7 @@ gulp.task('wiredep', () => {
 * Alias task to force order running
 */
 gulp.task('build', (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html', 'extras'], 'inline-critical', 'deploy', function(cb){
+    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html', 'extras'], 'inline-critical', function(cb){
         return gulp.src( env + '/**/*').pipe($.size({title: 'build', gzip: true}));
     });
 });
@@ -252,32 +252,4 @@ gulp.task('build', (cb) => {
 gulp.task('default', ['clean'], () => {
   env = pkg.config.dist_destination;
   return gulp.start('build');
-});
-
-gulp.task('deploy', () => {
-
-   /* var files   = fs.readdirSync('./'),
-        exclude = ['.git', '.gitignore', env, 'node_modules', 'bower_components'];
-
-    for(var i = 0; i < files.length; i++){
-
-        if( exclude.indexOf( files[i] ) === -1 ){
-            try {
-
-                var path = fs.realpathSync(files[i]);
-
-                if( fs.statSync(path).isDirectory() ){
-                    console.log(path);
-                    rmdir(path);
-                }
-                else {
-                    fs.unlinkSync(path);
-                }
-
-            } catch(e){}
-        }
-    }
-    //console.log(files);*/
-
-    del.sync(['./**','!./','!.git', '!.gitignore', '!'+env, 'node_modules', 'bower_components'], {dryRun: true});
 });
