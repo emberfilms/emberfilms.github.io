@@ -64,7 +64,7 @@ function lint(files) {
   };
 }
 
-gulp.task('lint', lint(['scripts/**/*.js', '!scripts/analytics.js']));
+gulp.task('lint', lint(['scripts/**/*.js', '!scripts/analytics.js', '!scripts/webfontloader.js']));
 
 /*
 * Find our generated html files
@@ -77,9 +77,22 @@ gulp.task('inline-critical', () => {
 });
 
 /*
+* Download google tools
+*/
+gulp.task('google-things', () => {
+    $.download('https://www.google-analytics.com/analytics.js')
+    .pipe(gulp.dest('scripts'))
+    $.download('https://raw.githubusercontent.com/typekit/webfontloader/master/webfontloader.js')
+    .pipe(gulp.dest('scripts'))
+});
+
+/*
 * Minify JS, CSS, HTML and include critical.css
 */
 gulp.task('html', ['jekyll'], () => {
+
+    /* Download Google Things */
+    gulp.start('google-things');
 
     /*
     * Take all the generated .html files

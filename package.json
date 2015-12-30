@@ -1,8 +1,8 @@
 {
   "name": "jekyll-bower-browser-sync",
   "description": "A starter project including full setup for Jekyll, GulpJS, SASS & BrowserSync",
-  "config" : {
-    "dev_destination" : "dev",
+  "config": {
+    "dev_destination": "dev",
     "dist_destination": "dist"
   },
   "main": "gulpfile.js",
@@ -21,6 +21,7 @@
     "gulp-autoprefixer": "^3.0.1",
     "gulp-cache": "^0.2.8",
     "gulp-cssnano": "^2.0.0",
+    "gulp-download": "0.0.1",
     "gulp-eslint": "^0.13.2",
     "gulp-htmlmin": "^1.3.0",
     "gulp-if": "^1.2.5",
