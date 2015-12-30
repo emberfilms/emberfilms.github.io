@@ -5,6 +5,7 @@ import del from 'del';
 import cp from 'child_process';
 import {stream as wiredep} from 'wiredep';
 import fs from 'fs';
+import rs from 'run-sequence';
 var argv = require('yargs').argv;
 
 const $ = gulpLoadPlugins();
@@ -89,10 +90,7 @@ gulp.task('google-things', () => {
 /*
 * Minify JS, CSS, HTML and include critical.css
 */
-gulp.task('html', ['jekyll'], () => {
-
-    /* Download Google Things */
-    gulp.start('google-things');
+gulp.task('html', () => {
 
     /*
     * Take all the generated .html files
@@ -114,10 +112,6 @@ gulp.task('html', ['jekyll'], () => {
     /*
     * Once everythings extracted we generate the sass
     */
-    setTimeout(function(){
-        //gulp.start('inline-critical');
-    }, 200);
-    return gulp.start('styles');
 });
 
 /*
@@ -245,8 +239,11 @@ gulp.task('wiredep', () => {
 /*
 * Alias task to force order running
 */
-gulp.task('build', ['lint', 'html', 'images', 'extras'], () => {
-    return gulp.src( env + '/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['lint', 'html', 'images', 'extras'], (cb) => {
+    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html'], 'inline-critical', function(cb){
+        return gulp.src( env + '/**/*').pipe($.size({title: 'build', gzip: true}));
+        cb();
+    });
 });
 
 /*
@@ -256,3 +253,22 @@ gulp.task('default', ['clean'], () => {
   env = pkg.config.dist_destination;
   gulp.start('build');
 });
+
+/*gulp.task('dist', function({
+
+    var clean = function(){
+        var files = fs.readdirSync('./');
+        console.log(files);
+        cb();
+    }
+
+
+
+    return runSequence('default', function({
+
+        files =
+
+        console.log(dist);
+        cb();
+    }));
+}));*/
