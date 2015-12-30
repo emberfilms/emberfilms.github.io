@@ -6,6 +6,7 @@ import cp from 'child_process';
 import {stream as wiredep} from 'wiredep';
 import fs from 'fs';
 import rs from 'run-sequence';
+import rmdir from 'rimraf';
 var argv = require('yargs').argv;
 
 const $ = gulpLoadPlugins();
@@ -255,15 +256,28 @@ gulp.task('default', ['clean'], () => {
 
 gulp.task('deploy', () => {
 
-    var files   = fs.readdirSync('./'),
-        exclude = ['.git', '.gitignore', env];
+   /* var files   = fs.readdirSync('./'),
+        exclude = ['.git', '.gitignore', env, 'node_modules', 'bower_components'];
 
     for(var i = 0; i < files.length; i++){
 
         if( exclude.indexOf( files[i] ) === -1 ){
-            var path = fs.realpathSync(files[i]);
-            fs.unlinkSync(path);
+            try {
+
+                var path = fs.realpathSync(files[i]);
+
+                if( fs.statSync(path).isDirectory() ){
+                    console.log(path);
+                    rmdir(path);
+                }
+                else {
+                    fs.unlinkSync(path);
+                }
+
+            } catch(e){}
         }
     }
-    //console.log(files);
+    //console.log(files);*/
+
+    del.sync(['./**','!./','!.git', '!.gitignore', '!'+env, 'node_modules', 'bower_components'], {dryRun: true});
 });
