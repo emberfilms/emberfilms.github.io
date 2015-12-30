@@ -115,7 +115,7 @@ gulp.task('html', ['jekyll'], () => {
     * Once everythings extracted we generate the sass
     */
     setTimeout(function(){
-        gulp.start('inline-critical');
+        //gulp.start('inline-critical');
     }, 200);
     return gulp.start('styles');
 });
