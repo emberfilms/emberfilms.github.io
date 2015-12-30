@@ -4,7 +4,6 @@ baseurl: https://www.website.com
 google-analytics: GA-XXXX
 
 markdown: kramdown
-highlighter: pygments
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
@@ -13,7 +12,6 @@ version: v3.0.1
 # Use the following plug-ins
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jemoji
 
 exclude:
     - .tmp
