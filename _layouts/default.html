@@ -19,8 +19,14 @@
     </head>
 
     <body>
-        {% include header.html %}
-        {% include sidebar.html %}
+
+        <canvas id='canvas'></canvas>
+
         {% include footer.html %}
+
+        <script>
+            Nodes.init();
+        </script>
+
     </body>
 </html>

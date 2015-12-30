@@ -29,6 +29,7 @@ gulp.task('jekyll', (done) => {
 * Compiles SCSS Files into the env folder
 */
 gulp.task('styles', () => {
+    console.log('hmm;');
     return gulp.src('_scss/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -65,7 +66,7 @@ function lint(files) {
   };
 }
 
-gulp.task('lint', lint(['scripts/**/*.js', '!scripts/analytics.js', '!scripts/webfontloader.js']));
+gulp.task('lint', lint(['scripts/**/*.js', '!scripts/nodes.js','!scripts/analytics.js', '!scripts/webfontloader.js']));
 
 /*
 * Find our generated html files
@@ -178,12 +179,19 @@ gulp.task('serve', ['clean','jekyll'], (done) => {
     gulp.watch('scripts/**/*.js', ['lint','dev-scripts']);
     gulp.watch('_scss/**/*.scss', ['styles']);
     gulp.watch('bower.json', ['wiredep']);
-    gulp.watch(['**/*.html', '!' + env + '/**/*.html'], ['jekyll']);
+    gulp.watch(['**/*.html', '!' + env + '/**/*.html'], ['rebuild-jekyll']);
 
     /*
     * Just force runs it the first time
     */
     gulp.start('styles');
+});
+
+gulp.task('rebuild-jekyll', (cb) => {
+    return rs('jekyll', 'styles', function(){
+        reload();
+        cb();
+    });
 });
 
 gulp.task('serve:dist', () => {
