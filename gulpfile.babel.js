@@ -239,10 +239,9 @@ gulp.task('wiredep', () => {
 /*
 * Alias task to force order running
 */
-gulp.task('build', ['lint', 'html', 'images', 'extras'], (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html'], 'inline-critical', function(cb){
+gulp.task('build', (cb) => {
+    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html', 'extras'], 'inline-critical', 'deploy', function(cb){
         return gulp.src( env + '/**/*').pipe($.size({title: 'build', gzip: true}));
-        cb();
     });
 });
 
@@ -251,24 +250,20 @@ gulp.task('build', ['lint', 'html', 'images', 'extras'], (cb) => {
 */
 gulp.task('default', ['clean'], () => {
   env = pkg.config.dist_destination;
-  gulp.start('build');
+  return gulp.start('build');
 });
 
-/*gulp.task('dist', function({
+gulp.task('deploy', () => {
 
-    var clean = function(){
-        var files = fs.readdirSync('./');
-        console.log(files);
-        cb();
+    var files   = fs.readdirSync('./'),
+        exclude = ['.git', '.gitignore', env];
+
+    for(var i = 0; i < files.length; i++){
+
+        if( exclude.indexOf( files[i] ) === -1 ){
+            var path = fs.realpathSync(files[i]);
+            fs.unlinkSync(path);
+        }
     }
-
-
-
-    return runSequence('default', function({
-
-        files =
-
-        console.log(dist);
-        cb();
-    }));
-}));*/
+    //console.log(files);
+});
