@@ -6,7 +6,6 @@ import cp from 'child_process';
 import {stream as wiredep} from 'wiredep';
 import fs from 'fs';
 import rs from 'run-sequence';
-import rmdir from 'rimraf';
 var argv = require('yargs').argv;
 
 const $ = gulpLoadPlugins();
