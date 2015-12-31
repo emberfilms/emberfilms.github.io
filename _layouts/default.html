@@ -15,18 +15,22 @@
         <!-- endbuild -->
 
         <link rel="stylesheet" href="/assets/css/critical.css" inline>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
     </head>
 
     <body>
 
-        <canvas id='canvas'></canvas>
+    <div id="main-container" class="preload">
 
-        {% include footer.html %}
+        <!-- Canvas -->
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
 
-        <script>
-            Nodes.init();
-        </script>
+    </div>
+
+    {% include footer.html %}
 
     </body>
 </html>

@@ -235,13 +235,13 @@ gulp.task('wiredep', () => {
         .pipe(wiredep({
         ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest( './_layouts' ));
+    .pipe(gulp.dest( '_layouts' ));
 
     gulp.src('_includes/footer.html')
         .pipe(wiredep({
         ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest( './_includes' ));
+    .pipe(gulp.dest( '_includes' ));
 });
 
 /*
