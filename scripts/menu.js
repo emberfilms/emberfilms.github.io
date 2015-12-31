@@ -3,9 +3,18 @@
 $(function(){
 
     var btn = $('.burger-svg-wrapper'),
-    menu    = $('nav'),
-    frame   = $('#main-container'),
     body    = $('body');
+
+    function closeMenu(e){
+
+        var t = $(e.target),
+            p = t.parents('nav');
+
+        if( !p.length ){
+            body.removeClass('menu-open');
+            body.off('click', closeMenu);
+        }
+    }
 
     function toggleMenu(){
 
@@ -18,17 +27,6 @@ $(function(){
             }
 
         });
-    }
-
-    function closeMenu(e){
-
-        var t = $(e.target),
-            p = t.parents('nav');
-
-        if( !p.length ){
-            body.removeClass('menu-open');
-            body.off('click', closeMenu);
-        }
     }
 
     btn.on('click', toggleMenu);
