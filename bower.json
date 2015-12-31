@@ -21,6 +21,7 @@
     "animation-frame": "animationFrame#~0.2.5",
     "zeptojs": "~1.1.6",
     "gsap": "~1.18.2",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "bower-froogaloop": "*"
   }
 }

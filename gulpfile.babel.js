@@ -29,7 +29,6 @@ gulp.task('jekyll', (done) => {
 * Compiles SCSS Files into the env folder
 */
 gulp.task('styles', () => {
-    console.log('hmm;');
     return gulp.src('_scss/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -59,7 +58,12 @@ function lint(files) {
         "globals" : {
             "$": true,
             "Modernizr": true,
-            "_": true
+            "_": true,
+            "$f": true
+        },
+        "rules": {
+            "no-undef": false,
+            "no-multi-spaces": false
         }
       }))
       .pipe($.eslint.format())

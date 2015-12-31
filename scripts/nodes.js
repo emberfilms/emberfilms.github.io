@@ -191,7 +191,7 @@ $(function(){
                 this.particleCanvas.width = 6,
                 this.particleCanvas.height = 6,
                 this.particleContext.beginPath(),
-                this.particleContext.fillStyle = "#FF625A",
+                this.particleContext.fillStyle = "#fff",
                 this.particleContext.arc(3, 3, 3, 0, 2 * Math.PI),
                 this.particleContext.fill()
             },
@@ -452,7 +452,7 @@ $(function(){
         var i = function() {
                 this.$.window.off("load", this.p.windowLoad),
                 this.p.windowLoad = null,
-                this.$.mainContainer[0].className = "",
+                this.$.mainContainer[0].className = this.$.mainContainer[0].className.replace("preload", ""),
                 h.call(this),
                 MBR.Views.Canvas.buildEvt(MBR.Views.Canvas.EVENT.INIT),
                 MBR.Views.Canvas.init()
