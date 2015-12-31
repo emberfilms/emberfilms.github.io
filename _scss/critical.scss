@@ -82,7 +82,7 @@ body {
 
         z-index: 3;
         position: absolute;
-        top: 0;
+        top: ($blip-height * -1);
         left: 50%;
         transform: translateX(-50%);
 
@@ -100,11 +100,11 @@ body {
     &:after {
         z-index: 2;
         width: 90%;
-        top: 0;
+        top: ($blip-height * -1) * 2;
     }
 
     .menu-open & {
-        transform: translateY(30vh) scale(0.9);
+        transform: translateY(200px) scale(0.9);
         position: relative;
 
         &:before,
@@ -258,12 +258,24 @@ header {
         color: #FF6400;
         text-transform: uppercase;
         font-size: 14px;
+
+        @media(max-width: 320px){
+            font-size: 12px;
+        }
     }
 
     h2 {
         color: white;
         text-transform: uppercase;
         font-size: 28px;
+
+        @media(min-width: 321px) and (max-width: 460px){
+            font-size: 21px;
+        }
+
+        @media(max-width: 320px){
+            font-size: 16px;
+        }
     }
 }
 

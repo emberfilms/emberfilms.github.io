@@ -176,7 +176,19 @@ $(function(){
             } else "enterLogo" == t ? ("clients" == i && MBR.Views.Clients.hideClientInfos(), "home" != i && _.call(this, !1)) : "leaveLogo" == t && ("clients" == i ? (MBR.Views.Clients.showClientInfos(), this.initClientLogo(MBR.Views.Clients.v.clientsInfos[MBR.Views.Clients.v.idLogo].img, "reset")) : "home" != i && m.call(this, t))
         },
         t.prototype.initLogo = function() {
-            this.logo = new Image, this.logo.src = BgImage, this.logoW = this.logo.width, this.logoH = this.logo.height, c.call(this), f.call(this, !0)
+
+            this.logo = new Image;
+
+            var that = this;
+
+            this.logo.onload = function(){
+                that.logoW = that.logo.width,
+                that.logoH = that.logo.height,
+                c.call(that),
+                f.call(that, !0)
+            }
+
+            this.logo.src = BgImage;
         }
         var e = function() {
                 this.canvas = document.getElementById("canvas"), this.context = this.canvas.getContext("2d")
@@ -467,13 +479,7 @@ $(function(){
     $(MBR.Main.onReady.bind(MBR.Main));
 
     $(window).load(function(){
-
         BgImage = "assets/img/particle-outline.png";
-
-        var cI = new Image;
-        cI.onload = function(){
-            MBR.Views.Canvas.initLogo();
-        }
-        cI.src = BgImage;
+        MBR.Views.Canvas.initLogo();
     });
-});
+})
