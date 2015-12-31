@@ -58,7 +58,8 @@ function lint(files) {
         },
         "globals" : {
             "$": true,
-            "Modernizr": true
+            "Modernizr": true,
+            "_": true
         }
       }))
       .pipe($.eslint.format())
