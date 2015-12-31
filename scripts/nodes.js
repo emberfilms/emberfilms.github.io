@@ -468,7 +468,7 @@ $(function(){
 
     $(window).load(function(){
 
-        BgImage = "giant_steps_particles_bg.png";
+        BgImage = "assets/img/particle-outline.png";
 
         var cI = new Image;
         cI.onload = function(){

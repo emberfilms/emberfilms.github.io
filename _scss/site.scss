@@ -1,0 +1,54 @@
+
+#canvas-container {
+
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    max-height: 900px;
+    overflow: hidden;
+
+    canvas {
+        height: 100%;
+
+        display: block;
+        margin: 0 auto;
+
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        left: 50%;
+
+        z-index: 3;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100vw;
+        height: 100vh;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+
+        background: rgba(255,255,255,0.65);
+        background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    }
+
+    iframe {
+        height: 100vh;
+        width: 100vw;
+        display: block;
+
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+}
