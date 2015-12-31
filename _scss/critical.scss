@@ -194,12 +194,12 @@ nav {
             transition: transform 0.2s;
         }
 
-        .burger-svg-rect-middle {
+        .burger-svg-middle {
             opacity: 0;
         }
 
         .burger-svg-bottom {
-            transform: translateZ(0) rotate(-45deg);
+            transform: rotate(-45deg) translate3d(1px,1px,0);
         }
     }
 
@@ -273,4 +273,10 @@ footer {
     left: 35px;
     font-size: 10px;
     z-index: 5;
+
+    transition: opacity .5s linear;
+
+    .menu-open & {
+        opacity: 0;
+    }
 }
