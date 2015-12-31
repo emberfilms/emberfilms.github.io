@@ -17,12 +17,17 @@ $(function() {
       //  console.log(data.seconds + 's played');
     }
 
-    // When the player is ready, add listeners for pause, finish, and playProgress
-    player.addEvent('ready', function() {
-        //player.play();
-        player.addEvent('pause', onPause);
-        player.addEvent('finish', onFinish);
-        player.addEvent('playProgress', onPlayProgress);
-    });
+    try {
+        // When the player is ready, add listeners for pause, finish, and playProgress
+        player.addEvent('ready', function() {
+            //player.play();
+            player.addEvent('pause', onPause);
+            player.addEvent('finish', onFinish);
+            player.addEvent('playProgress', onPlayProgress);
+        });
+    }
+    catch(e){
+        console.error('vimeo error:', e);
+    }
 
 });
