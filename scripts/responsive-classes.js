@@ -4,9 +4,6 @@ $(function(){
 
     var html = $('html');
 
-    //js support
-    html.removeClass('no-js').addClass('js');
-
     //is mobile?
     if( isMobile.any ){
         html.addClass('mobile');
@@ -17,7 +14,7 @@ $(function(){
         html.addClass('phone');
     }
     else if( isMobile.tablet ){
-        html.addClass('tablet')
+        html.addClass('tablet');
     }
     else if( isMobile.seven_inch ){
         html.addClass('seven_inch');

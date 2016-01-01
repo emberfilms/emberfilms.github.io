@@ -1,5 +1,17 @@
-<header>
-    <h1><a href="/">{{site.name}}</a></h1><br/>
-    <h2>{{site.subtitle-one}}</h2><br/>
-    {% include navigation.html %}
-</header>
+<head>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- check for js support before css is loaded to prevent fouc! -->
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+    <!-- critical inline css, this contains all styling for above the fold to give
+         users a more crisp loading experience -->
+    <link rel="stylesheet" href="/assets/css/critical.css" inline>
+
+</head>

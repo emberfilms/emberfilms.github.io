@@ -111,7 +111,8 @@ gulp.task('html', () => {
         discardEmpty: true
     })))
     .pipe($.if('*.html', $.htmlmin({
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        removeComments: true
     })))
     .pipe(gulp.dest(env));
 

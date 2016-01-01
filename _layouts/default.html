@@ -1,62 +1,17 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
-        {% include meta.html %}
-
-        <!--[if lt IE 9]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-        <!-- build:css /assets/css/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <link rel="stylesheet" href="/assets/css/critical.css" inline>
-        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>-->
-
-    </head>
-
+    {% include header.html %}
     <body>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="">Home</a>
-            </li>
-            <li>
-                <a href="">Studio</a>
-            </li>
-            <li>
-                <a href="">Services</a>
-            </li>
-            <li>
-                <a href="">Contact</a>
-            </li>
-        </ul>
-    </nav>
-
+    {% include nav.html %}
     {% include menu-button.html %}
 
     <div id="main-container" class="preload">
 
-        <div id="canvas-container">
-
-            <canvas id="canvas"></canvas>
-            <iframe data-aspect="1195:459" data-aspect-boundry="height" id="showreel" src="http://player.vimeo.com/video/109556361?autoplay=1&amp;loop=1&amp;api=1&amp;player_id=showreel" allowfullscreen></iframe>
-
-            <header>
-                <h1>EMBER</h1>
-                <h2>Film is our passion.</h2>
-            </header>
-
-        </div>
+        {{ content }}
 
     </div>
 
     {% include footer.html %}
-
     </body>
 </html>
