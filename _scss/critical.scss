@@ -129,7 +129,7 @@ body {
 nav {
     width: 90vw;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 35px;
 
     position: fixed;
     top: 0;
@@ -143,21 +143,31 @@ nav {
     .menu-open & {
         transform: translate3d(-50%, 0, 0);
         opacity: 1;
+        z-index: 10;
     }
 
     ul {
         margin: 0;
+        position: relative;
 
         li {
 
             float: left;
             display: block;
-            width: 33%;
+            width: 25%;
             text-align: center;
             line-height: 40px;
 
-            a {
+            @media(max-width: 420px){
+                width: 50%;
+            }
 
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 700;
+                font-size: 14px;
             }
         }
     }
@@ -183,6 +193,10 @@ nav {
     .menu-open & {
         transform: translateZ(0) rotate(90deg);
         transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+
+        @media(max-width: 420px){
+            transform: translateZ(0) rotate(90deg) scale(0.6);
+        }
 
         .burger-svg {
             transform: translateZ(0) rotate(45deg);
