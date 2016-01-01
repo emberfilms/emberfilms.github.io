@@ -1,0 +1,25 @@
+// Breakpoints
+$xsmall:        0;
+$xsmall-min:    $xsmall;
+$xsmall-max:    479px;
+
+    $xsmall-mid: 335px;
+
+$small:         480px;
+$small-min:     $small;
+$small-max:     767px;
+
+    $small-mid:     ($small + ((($small-max + 1) - $small-min) / 2));
+
+$medium:        768px;
+$medium-min:    $medium;
+$medium-max:    959px;
+
+    $medium-mid:    ($medium + ((($medium-max + 1) - $medium-min) / 2));
+
+$large:         960px;
+$large-min:     $large;
+$large-max:     1219px;
+
+$xlarge:        1220px;
+$xlarge-min:    $xlarge;
