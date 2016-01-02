@@ -24,6 +24,9 @@ $(function(){
         body.toggleClass('menu-open').promise().done(function(){
 
             if( body.hasClass('menu-open') ){
+
+                $(document).trigger('refreshUnderline');
+
                 setTimeout(function(){
                     body.on('click', closeMenu);
                 }, 1);
@@ -77,6 +80,8 @@ $(function(){
        .on('click', 'a', moveActiveClass)
        .on('mouseleave', initialPositioning)
        .ready(initialPositioning);
+
+    $(document).on('refreshUnderline', initialPositioning);
 });
 
 /*
