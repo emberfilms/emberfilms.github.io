@@ -96,7 +96,7 @@ gulp.task('google-things', () => {
 /*
 * Minify JS, CSS, HTML and include critical.css
 */
-gulp.task('html', () => {
+gulp.task('minify', () => {
 
     /*
     * Take all the generated .html files
@@ -104,12 +104,8 @@ gulp.task('html', () => {
     * we then concatinate them and minify
     */
     gulp.src( env + '/*.html')
-    .pipe($.useref({searchPath: ['.tmp', env, '.', 'scripts']}))
-    //.pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano({
-        discardComments: { removeAll: true },
-        discardEmpty: true
-    })))
+    .pipe($.useref({searchPath: ['.tmp', env, '.', 'scripts', 'assets/css', 'assets/js']}))
+    .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.html', $.htmlmin({
         collapseWhitespace: true,
         removeComments: true
@@ -117,8 +113,14 @@ gulp.task('html', () => {
     .pipe(gulp.dest(env));
 
     /*
-    * Once everythings extracted we generate the sass
+    * Once everythings extracted we minify the sass
     */
+    return gulp.src( env + '/assets/css/site.css')
+    .pipe($.cssnano({
+        discardComments: { removeAll: true },
+        discardEmpty: true
+    }))
+    .pipe(gulp.dest(env + '/assets/css'));
 });
 
 /*
@@ -254,9 +256,7 @@ gulp.task('wiredep', () => {
 * Alias task to force order running
 */
 gulp.task('build', (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], ['styles', 'html', 'extras'], 'inline-critical', function(cb){
-        return gulp.src( env + '/**/*').pipe($.size({title: 'build', gzip: true}));
-    });
+    return rs('clean', ['lint', 'jekyll', 'google-things', 'images', 'styles'], ['minify', 'extras'], cb);
 });
 
 /*
