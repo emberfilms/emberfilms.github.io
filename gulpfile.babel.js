@@ -71,7 +71,7 @@ function lint(files) {
   };
 }
 
-gulp.task('lint', lint(['scripts/**/*.js', '!scripts/nodes.js','!scripts/analytics.js', '!scripts/webfontloader.js']));
+gulp.task('lint', lint(['scripts/*.js', '!scripts/nodes.js']));
 
 /*
 * Find our generated html files
@@ -105,7 +105,7 @@ gulp.task('html', () => {
     */
     gulp.src( env + '/*.html')
     .pipe($.useref({searchPath: ['.tmp', env, '.', 'scripts']}))
-    .pipe($.if('*.js', $.uglify()))
+    //.pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano({
         discardComments: { removeAll: true },
         discardEmpty: true
