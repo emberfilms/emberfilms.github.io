@@ -7,7 +7,7 @@ layout: default
 <section id="canvas-container">
 
     <canvas id="canvas"></canvas>
-    <iframe style="opacity: 0; visibility: hidden;" data-aspect="1195:459" data-aspect-boundry="height" id="showreel" src="http://player.vimeo.com/video/109556361?autoplay=1&amp;loop=1&amp;api=1&amp;player_id=showreel" allowfullscreen></iframe>
+    <iframe style="opacity: 0; visibility: hidden;" data-aspect="1195:459" data-aspect-boundry="height" id="showreel" src="https://player.vimeo.com/video/109556361?autoplay=1&amp;loop=1&amp;api=1&amp;player_id=showreel" allowfullscreen></iframe>
 
     <header>
         <h1>EMBER</h1>
@@ -16,96 +16,6 @@ layout: default
 
 </section>
 
-
-<section id="showcase">
-
-    {% for row in rows %}
-    {% assign ordered_row = row.items | sort: "position" %}
-    {% assign hero = ordered_row[0] %}
-
-    <div class="uk-grid uk-grid-collapse">
-
-        <div class="uk-width-4-10">
-            <div class="width-{{hero.width}} height-{{hero.height}}">
-                <a href="">
-                    <div class="bg" style="background-image: url({{hero.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{hero.title}}</h2>
-                        <span>{{hero.caption}}</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="uk-width-6-10 uk-clearfix">
-
-            {% for work in ordered_row %}
-            {% if work.position > 1 %}
-
-            <div class="width-{{work.width}} height-{{work.height}}">
-                <a href="/{{work.permalink}}">
-                    <div class="bg" style="background-image: url({{work.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{work.title}}</h2>
-                        <span>{{work.caption}}</span>
-                    </div>
-                </a>
-            </div>
-
-            {% endif %}
-            {% endfor %}
-
-        </div>
-
-    </div>
-    {% endfor %}
-
-</section>
-
-<section id="showcase">
-
-    {% for row in rows %}
-    {% assign ordered_row = row.items | sort: "position" %}
-    {% assign hero = ordered_row[0] %}
-
-    <div class="uk-grid uk-grid-collapse">
-
-        <div class="uk-width-4-10">
-            <div class="width-{{hero.width}} height-{{hero.height}}">
-                <a href="">
-                    <div class="bg" style="background-image: url({{hero.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{hero.title}}</h2>
-                        <span>{{hero.caption}}</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="uk-width-6-10 uk-clearfix">
-
-            {% for work in ordered_row %}
-            {% if work.position > 1 %}
-
-            <div class="width-{{work.width}} height-{{work.height}}">
-                <a href="/{{work.permalink}}">
-                    <div class="bg" style="background-image: url({{work.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{work.title}}</h2>
-                        <span>{{work.caption}}</span>
-                    </div>
-                </a>
-            </div>
-
-            {% endif %}
-            {% endfor %}
-
-        </div>
-
-    </div>
-    {% endfor %}
-
-</section>
 
 <section id="showcase">
 

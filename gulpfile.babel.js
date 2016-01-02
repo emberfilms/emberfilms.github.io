@@ -88,9 +88,9 @@ gulp.task('inline-critical', () => {
 */
 gulp.task('google-things', () => {
     $.download('https://www.google-analytics.com/analytics.js')
-    .pipe(gulp.dest('scripts'))
+    .pipe(gulp.dest('scripts/vendor'))
     $.download('https://raw.githubusercontent.com/typekit/webfontloader/master/webfontloader.js')
-    .pipe(gulp.dest('scripts'))
+    .pipe(gulp.dest('scripts/vendor'))
 });
 
 /*
