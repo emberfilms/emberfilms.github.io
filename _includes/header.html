@@ -8,10 +8,20 @@
     <![endif]-->
 
     <!-- check for js support before css is loaded to prevent fouc! -->
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <script>(function(J){J.className=J.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
     <!-- critical inline css, this contains all styling for above the fold to give
          users a more crisp loading experience -->
     <link rel="stylesheet" href="/assets/css/critical.css" inline>
+    <noscript>
+        <style type="text/css">
+            body {
+                opacity: 1;
+            }
+            #loader {
+                display: none;;
+            }
+        </style>
+    </noscript>
 
 </head>

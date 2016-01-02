@@ -232,10 +232,14 @@ $(function(){
                 this.aParticlesLogo = []
             },
             u = function() {
-                this.logoHomeContext.clearRect(0, 0, this.logoHomeCanvasW, this.logoHomeCanvasW), this.logoHomeCanvasH = Math.round(70 * MBR.Main.windowH / 100), this.logoHomeCanvasW = Math.round(550 * this.logoHomeCanvasH / 667), this.logoHomeCanvas.width = this.logoHomeCanvasW, this.logoHomeCanvas.height = this.logoHomeCanvasH
+                this.logoHomeContext.clearRect(0, 0, this.logoHomeCanvasW, this.logoHomeCanvasW),
+                this.logoHomeCanvasH = Math.round(70 * MBR.Main.windowH / 100),
+                this.logoHomeCanvasW = Math.round(550 * this.logoHomeCanvasH / 667),
+                this.logoHomeCanvas.width = this.logoHomeCanvasW,
+                this.logoHomeCanvas.height = this.logoHomeCanvasH
             },
             c = function() {
-                this.logoHomeContext.drawImage(this.logo, 0, 0, this.logoW, this.logoH, 0, 0, this.logoHomeCanvasW, this.logoHomeCanvasH)
+                this.logoHomeContext.drawImage(this.logo, 0, 0,this.logoW, this.logoH,0, 0, this.logoHomeCanvasW, this.logoHomeCanvasH)
             },
             d = function() {
                 this.logoClientCanvasW = Math.round(MBR.Main.windowH - 5 * MBR.Main.windowH / 100 - 100 - 50), this.logoClientCanvas.width = this.logoClientCanvasW, this.logoClientCanvas.height = this.logoClientCanvasW
@@ -470,7 +474,7 @@ $(function(){
                 MBR.Views.Canvas.init()
             };
         var h = function() {
-                this.windowW = this.$.body.width(), this.windowH = this.$.body.height()
+                this.windowW = this.$.window.width(), this.windowH = this.$.window.height()
             };
 
         return new e

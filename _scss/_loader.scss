@@ -1,0 +1,73 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    };
+}
+
+#loader {
+
+    .loaded & {
+        display: none;
+    }
+
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+    $size: 120px;
+
+    width: $size;
+    height: $size;
+
+    > div:first-child {
+        position: absolute;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            color: $orange;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family: 'Lato', 'Helvetica', Arial;
+        }
+    }
+
+    > div:last-child {
+        position: absolute;
+        width: $size / 2;
+        height: $size;
+        overflow: hidden;
+
+        mask-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0));
+        transform-origin: ($size / 2) ($size / 2);
+        animation: rotate 2s infinite linear;
+
+        div {
+            width: $size;
+            height: $size;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 1px rgba(255, 100, 0, 0.75);
+        }
+    }
+}
+
+.loading.js {
+    nav,
+    .burger-svg-wrapper,
+    #main-container,
+    footer {
+        transition: opacity .5s $easing;
+        opacity: 0 !important;
+    }
+}

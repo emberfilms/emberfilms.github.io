@@ -35,6 +35,8 @@ html {
     height: 100%;
 }
 
+@import 'loader';
+
 body {
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
@@ -50,6 +52,20 @@ body {
     }
 }
 
+nav {
+    width: 90vw;
+    margin: 0 auto;
+    padding-top: 35px;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 0;
+
+    transition: all .5s $easing;
+    transform: translate3d(-50%, 10vh, 0);
+    opacity: 0;
+}
 
 #main-container {
 
@@ -90,6 +106,10 @@ body {
         transform: translateY(130px) scale(0.9);
         position: relative;
 
+        @media(max-width: $small-max){
+            transform: translateY(160px) scale(0.9);
+        }
+
         &:before,
         &:after {
             opacity: 1;
@@ -105,60 +125,6 @@ body {
             position: relative;
             z-index: 1;
             box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1)
-        }
-    }
-}
-
-nav {
-    width: 90vw;
-    margin: 0 auto;
-    padding-top: 35px;
-
-    position: fixed;
-    top: 0;
-    left: 50%;
-    z-index: 0;
-
-    transition: all .5s $easing;
-    transform: translate3d(-50%, 10vh, 0);
-    opacity: 0;
-
-    .menu-open & {
-        transform: translate3d(-50%, 0, 0);
-        opacity: 1;
-        z-index: 10;
-    }
-
-    .no-js & {
-        opacity: 1;
-        transform: none;
-        position: static;
-        padding-bottom: 35px;
-    }
-
-    ul {
-        margin: 0;
-        position: relative;
-
-        li {
-
-            float: left;
-            display: block;
-            width: 25%;
-            text-align: center;
-            line-height: 40px;
-
-            @media(max-width: $small-max){
-                width: 50%;
-            }
-
-            a {
-                text-decoration: none;
-                text-transform: uppercase;
-                color: white;
-                font-weight: 700;
-                font-size: 14px;
-            }
         }
     }
 }
@@ -250,7 +216,7 @@ nav {
 
 header {
     width: 100%;
-    max-width: 980px;
+    max-width: 300px;
 
     position: fixed;
     top: 35px;
@@ -285,7 +251,7 @@ header {
     }
 
     h1 {
-        color: #FF6400;
+        color: $orange;
         text-transform: uppercase;
         font-size: 14px;
 

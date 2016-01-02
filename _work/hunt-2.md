@@ -1,8 +1,18 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
-date:   2014-04-20 09:11:03
-categories: jekyll update
+layout: default
+
+title:  "The Hunt is a long name"
+description: "some desc with an even longer desctiption"
+caption: "some desc with an even longer desctiption"
+thumbnail: "http://emberfilms.co.uk/images/home/motion-graphics-vfx.jpg"
+
+permalink: the-hunt-2
+showcase: "yep"
+row: 1
+position: 3
+width: 2
+height: 1
+
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

@@ -4,7 +4,12 @@ baseurl: https://www.website.com
 google-analytics: GA-XXXX
 
 markdown: kramdown
-permalink: /:title/
+permalink: /blog/:title/
+
+collections:
+    work:
+        output: true
+        permalink: :permalink/
 
 # The release of Jekyll Now that you're using
 version: v3.0.1

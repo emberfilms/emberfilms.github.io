@@ -1,0 +1,55 @@
+nav {
+
+    .menu-open & {
+        transform: translate3d(-50%, 0, 0);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    .no-js & {
+        opacity: 1;
+        transform: none;
+        position: static;
+        padding-bottom: 35px;
+    }
+
+    ul {
+        margin: 0;
+        position: relative;
+
+        li {
+
+            float: left;
+            display: block;
+            width: 25%;
+            text-align: center;
+            line-height: 40px;
+
+            @media(max-width: $small-max){
+                width: 50%;
+            }
+
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 700;
+                font-size: 14px;
+            }
+        }
+    }
+
+    [data-navigation-underline] {
+
+        transition: all .2s;
+        animation: fadein 2s;
+
+        height: 1px;
+        position: absolute;
+        left: 10px;
+        width: 0px;
+        bottom: 0px;
+        background: white;
+        pointer-events: none;
+    }
+}

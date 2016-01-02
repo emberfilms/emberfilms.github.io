@@ -1,7 +1,25 @@
 'use strict';
 
 $(function(){
-    $(window).load(function(){
-        $('html').addClass('loaded');
-    });
+
+    var html = $('html'),
+    loaded   = function(){
+
+        $('html').addClass('loaded').removeClass('loading');
+
+        $('#loader').fadeOut(function(){
+            $(this).remove();
+            $(document).trigger('pageLoaded');
+        });
+
+    };
+
+    if( html.hasClass('mobile') ){
+        loaded();
+    }
+    else {
+        setTimeout(loaded, 5000);
+    }
+
+    $(document).on('videoLoaded', loaded);
 });

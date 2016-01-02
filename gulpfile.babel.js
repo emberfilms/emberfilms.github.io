@@ -185,7 +185,7 @@ gulp.task('serve', ['clean','jekyll'], (done) => {
     gulp.watch('scripts/**/*.js', ['lint','dev-scripts']);
     gulp.watch('_scss/**/*.scss', ['styles']);
     gulp.watch('bower.json', ['wiredep']);
-    gulp.watch(['**/*.html', '!' + env + '/**/*.html'], ['rebuild-jekyll']);
+    gulp.watch(['**/*.html', '**/*.md', '!' + env + '/**/*.html'], ['rebuild-jekyll']);
 
     /*
     * Just force runs it the first time
