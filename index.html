@@ -4,14 +4,9 @@ layout: default
 
 {% assign rows = site.work | where: "showcase","yep" | sort: "row" | group_by: "row" %}
 
-<section id="canvas-container">
+<section id="showreel-container" class="uk-container uk-container-center">
 
-    <iframe style="opacity: 0; visibility: hidden;" data-aspect="1195:459" data-aspect-boundry="height" id="showreel" src="https://player.vimeo.com/video/109556361?autoplay=1&amp;loop=1&amp;api=1&amp;player_id=showreel" allowfullscreen></iframe>
-
-    <header>
-        <h1>EMBER</h1>
-        <h2>Film is our passion.</h2>
-    </header>
+    <iframe style="opacity: 0; visibility: hidden;" data-aspect="1195:459" data-aspect-boundry="width" id="showreel" src="https://player.vimeo.com/video/109556361?autoplay=1&amp;loop=1&amp;api=1&amp;player_id=showreel" allowfullscreen></iframe>
 
 </section>
 

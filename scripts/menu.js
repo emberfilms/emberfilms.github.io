@@ -91,7 +91,7 @@ $(function(){
 
     $(window).on('scroll', function(){
 
-        var header = $('header'),
+        var header = $('header h1'),
         scrollT    = $(window).scrollTop(),
         range      = 200,
         opacity    = (1 - (((scrollT + range) / range) - 1)).toFixed(2);
