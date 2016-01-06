@@ -51,7 +51,8 @@ $(function(){
 
         var link = item || $(this),
         marginL  = parseInt(link.css('marginLeft')),
-        left     = link.position().left + marginL,
+        paddingL = parseInt(nav.css('paddingLeft')),
+        left     = (link.position().left + marginL) + paddingL,
         width    = link.width();
 
         bar.css({
@@ -93,7 +94,7 @@ $(function(){
 
         var header = $('header h1'),
         scrollT    = $(window).scrollTop(),
-        range      = 200,
+        range      = 10,
         opacity    = (1 - (((scrollT + range) / range) - 1)).toFixed(2);
 
         if( opacity < 0.00 ){

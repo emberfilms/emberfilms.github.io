@@ -1,6 +1,11 @@
 #showreel-container {
 
-    iframe {
+    video {
+        max-width: 100%;
+        max-width: calc(100% - 1px);
+        display: block;
+        margin-bottom: $gap;
+
         .loaded &,
         .no-js & {
             opacity: 1 !important;
@@ -9,9 +14,66 @@
     }
 }
 
-#showcase {
+#value-prop {
 
-    max-width: 1440px;
+    max-width: 960px;
+
+    .prop-text {
+
+        > h2,
+        > p {
+            @media(min-width: $small-min){
+                width: 50%;
+                float: left;
+                padding-right: 45px;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        h2 {
+            font-family: 'Lora';
+            font-weight: 700;
+            font-style: italic;
+            font-size: 42px;
+            line-height: 48px;
+            text-align: center;
+
+            width: 100%;
+
+            @media(max-width: $small-max){
+                font-size: 37px;
+                line-height: 42px;
+            }
+
+            &:after {
+                display: block;
+                width: 100px;
+                height: 1px;
+                background: #000;
+                margin: 25px auto;
+                content: "";
+            }
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 1px;
+            opacity: 0.7;
+
+            @media(max-width: $small-max){
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+#showcase {
 
     .height-1 {
         height: 200px;
@@ -23,6 +85,7 @@
 
     .height-3 {
         height: 600px;
+        height: 600px + $gap;
     }
 
     .js & {
@@ -36,6 +99,8 @@
 
     div[class^="width-"] {
         float: left;
+        margin-bottom: $gap;
+        background: #000;
 
         a {
             display: block;
@@ -54,6 +119,8 @@
                 background-size: cover;
                 transform: scale(1);
                 transition: transform .5s;
+
+                filter: grayscale(100%);
             }
 
             .caption {
@@ -100,7 +167,8 @@
 
                 .bg {
                     transform: scale(1.05);
-                    opacity: 0.3;
+                    opacity: 0.6;
+                    filter: grayscale(0%);
                 }
 
                 .caption {
@@ -115,7 +183,17 @@
         width: 100%;
 
         @media(min-width: $small){
-            width: 34%;
+
+            &:first-child {
+                width: calc(34% - 4px);
+                margin-right: 4px;
+            }
+
+            &:nth-child(3),
+            &:nth-child(6), {
+                width: 34%;
+                margin-right: 0;
+            }
         }
     }
 
@@ -129,5 +207,11 @@
 
     .width-3 {
         width: 100%;
+
+        &.height-3 {
+            @media(min-width: $small){
+                width: calc(100% - 4px);
+            }
+        }
     }
 }

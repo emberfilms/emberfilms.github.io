@@ -6,8 +6,10 @@
 @import 'bower_components/uikit/scss/core/panel';
 @import 'bower_components/uikit/scss/core/block';
 @import 'bower_components/uikit/scss/core/utility';
+@import 'bower_components/uikit/scss/core/animation';
 
 /* Site Specific */
 @import 'variables';
 @import 'navigation';
+@import 'footer';
 @import 'homepage';

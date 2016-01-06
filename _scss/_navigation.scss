@@ -1,9 +1,19 @@
-nav {
+.mast nav {
+
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 35px;;
+    transform: translate3d(-50%, 200%, 0);
+    width: 100%;
+    padding: 0 100px;
+    opacity: 0;
+
+    transition: all .4s $easing;
 
     .menu-open & {
         transform: translate3d(-50%, 0, 0);
         opacity: 1;
-        z-index: 10;
     }
 
     .no-js & {
