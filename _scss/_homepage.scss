@@ -17,6 +17,24 @@
 #value-prop {
 
     max-width: 960px;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0) rotate(-10deg);
+
+        background: #fff;
+        width: 500%;
+        width: 150vw;
+        height: 130%;
+    }
+
 
     .prop-text {
 
