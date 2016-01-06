@@ -5,7 +5,7 @@
 */
 $(function(){
 
-    var btn = $('.burger-svg-wrapper'),
+    var btn = $('.menu-button'),
     body    = $('body');
 
     function closeMenu(e){
@@ -92,7 +92,7 @@ $(function(){
 
     $(window).on('scroll', function(){
 
-        var header = $('header h1'),
+        var header = $('header h1, header .tel'),
         scrollT    = $(window).scrollTop(),
         range      = 10,
         opacity    = (1 - (((scrollT + range) / range) - 1)).toFixed(2);

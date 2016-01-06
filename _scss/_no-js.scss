@@ -1,0 +1,7 @@
+.no-js {
+
+    [data-uk-scrollspy*='uk-animation-']:not([data-uk-scrollspy*='target']){
+        opacity: 1;
+    }
+
+}

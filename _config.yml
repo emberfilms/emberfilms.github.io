@@ -3,6 +3,15 @@ description: The award winning production company.
 baseurl: https://www.website.com
 google-analytics: GA-XXXX
 
+telephone: "+44 (0) 8448 099 567"
+email: "info@emberfilms.co.uk"
+linkedin: "https://www.linkedin.com/company/ember-films"
+twitter: "https://twitter.com/EmberFilms"
+facebook: "https://www.facebook.com/EmberFilms"
+instagram:  "https://www.instagram.com/ember_films/"
+vimeo: "https://vimeo.com/emberfilms"
+
+
 markdown: kramdown
 permalink: /blog/:title/
 

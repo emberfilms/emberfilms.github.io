@@ -1,45 +1,5 @@
 @import 'variables';
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: border-box;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-    box-sizing: border-box;
-}
-ol, ul {
-    list-style: none;
-}
-
-html {
-    height: 100%;
-}
-
-.fixed {
-    position: fixed;
-    width: 100%;
-}
-
+@import 'reset';
 @import 'loader';
 
 body {
@@ -59,19 +19,6 @@ body {
     border-top: $gap solid #fff;
 }
 
-.mast {
-    opacity: 0;
-    z-index: 20;
-
-    .no-js & {
-        opacity: 1;
-    }
-
-    .loaded & {
-        opacity: 1
-    }
-}
-
 #main-container {
 
     transition: all .5s $easing;
@@ -86,90 +33,145 @@ body {
     }
 }
 
-.burger-svg-wrapper {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    outline: none;
-    background-color: transparent;
+.mast {
+    opacity: 0;
+    z-index: 20;
+
+    .no-js & {
+        opacity: 1;
+    }
+
+    .loaded & {
+        opacity: 1
+    }
+}
+
+.menu-button {
+
+    margin-top: 50px;
+    position: relative;
+    z-index: 100;
+
+    background: none;
+    border: none;
+    width: 80px;
+
+    color: $orange;
+    font-size: 12px;
+    line-height: 16px;
     display: block;
-
-    height: 110px;
-    width: 110px;
-    transform: translateZ(0) rotate(0deg);
-    transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 1s linear 1s;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    font-weight: 700;
+    transition: all .3s ease;
     cursor: pointer;
-    overflow: hidden;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 3;
+    outline: none;
+    box-shadow: none;
 
     .no-js & {
         display: none;
     }
 
-    .js & {
-        opacity: 0;
+    .open {
+        display: block
     }
 
-    .loaded & {
-        opacity: 1;
+    .close {
+        display: none;
     }
 
     .menu-open & {
-        transform: translateZ(0) rotate(90deg);
-        transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-
-        @media(max-width: $small-max){
-            transform: translateZ(0) rotate(90deg) scale(0.6);
+        .open {
+            display: none;
         }
-
-        .burger-svg {
-            transform: translateZ(0) rotate(45deg);
-            transition: 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        }
-
-        .burger-svg-rect {
-            transform: translate3d(0, 0, 0);
-            transition: transform 0.2s;
-        }
-
-        .burger-svg-middle {
-            opacity: 0;
-        }
-
-        .burger-svg-bottom {
-            transform: rotate(-45deg) translate3d(1px,1px,0);
+        .close {
+            display: block;
         }
     }
 
-    .burger-svg {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateZ(0) rotate(0deg);
-        transition: transform 0.25s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    i {
+        width: 17px;
+        display: block;
+        float: left;
+        margin-right: 10px;
+        padding: 1px 0;
+
+        span {
+            height: 2px;
+            width: 100%;
+            display: block;
+            background: $orange;
+            margin: 3px 0;
+            transition: all .3s cubic-bezier(.445,.05,.55,.95);
+            position: relative;
+
+            .menu-open & {
+
+                &:first-child {
+                    transform: rotate(45deg) translate(0,-5px);
+                    transform-origin: top left;
+                }
+
+                &:last-child {
+                    transform-origin: bottom left;
+                    transform: rotate(-45deg) translate(0,4.5px);
+                    overflow: hidden;
+
+                    &:before {
+                        transition-delay: .1s;
+                        left: initial;
+                        right: 0;
+                    }
+                }
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: #000;
+                height: 100%;
+                width: 0%;
+                display: block;
+                transition: all .3s ease;
+            }
+        }
     }
 
-    .burger-svg-rect {
-        left: 0;
-        top: 0;
-        transition: transform 0.2s 0.2s;
-        fill: #000;
+    .open,
+    .close {
+        transition: all .3s ease;
     }
 
-    .burger-svg-rect-top {
-        transform: translate3d(0, -8px, 0);
+    body:not(.menu-open) & {
+        &:hover  {
+            i {
+                span:first-child {
+                    transform: translate(0,-2px);
+                }
+                span:last-child {
+                    transform: translate(0,2px);
+                }
+            }
+        }
     }
 
-    .burger-svg-rect-middle {
-        transform: translate3d(0, 0, 0);
-    }
+    .menu-open & {
+        &:hover {
 
-    .burger-svg-rect-bottom {
-        transform: translate3d(0, 8px, 0);
+            span {
+                color: #000
+            }
+
+            i {
+                span {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -185,7 +187,10 @@ header {
     width: 100%;
 
     .no-js & {
-        position: relative;
+        margin: 0;
+        padding: 0;
+        position: static;
+        transform: none;
     }
 
     h1 {
@@ -206,6 +211,10 @@ header {
 
         .menu-open & {
             opacity: 0 !important;
+        }
+
+        .no-js & {
+            margin: 0;
         }
 
         &:before {
@@ -248,6 +257,38 @@ header {
         .loaded & {
             transform: translateX(0);
             opacity: 1;
+        }
+    }
+
+    .tel {
+
+        position: absolute;
+        bottom: 10px;
+        right: 25px;
+
+        .menu-open & {
+            opacity: 0 !important;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @media(min-width: $xlarge){
+            right: 35px;
+        }
+
+        color: $orange;
+        transition: all .5s ease;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+
+        &:first-letter {
+            color: #000;
+            padding-right: 2px;
+        }
+
+        &:hover {
+            color: #000;
         }
     }
 }
