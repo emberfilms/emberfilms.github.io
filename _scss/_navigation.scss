@@ -1,66 +1,57 @@
-.mast nav {
+header {
 
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 35px;;
-    transform: translate3d(-50%, 200%, 0);
-    width: 100%;
-    padding: 0 100px;
-    opacity: 0;
+    &.mini {
 
-    transition: all .4s $easing;
+        //background: none;
+        //pointer-events: none;
 
-    .menu-open & {
-        transform: translate3d(-50%, 0, 0);
-        opacity: 1;
-    }
+        &:before {
+            transform: translate(0, -100%);
+        }
 
-    .no-js & {
-        opacity: 1;
-        transform: none;
-        position: static;
-        padding-bottom: 0;
-        margin: 0;
-    }
+        [data-navigation-underline] {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-    ul {
-        margin: 0;
-        position: relative;
+        nav {
 
-        li {
-
-            float: left;
-            display: block;
-            width: 25%;
-            text-align: center;
-            line-height: 40px;
-
-            @media(max-width: $small-max){
-                width: 50%;
+            //first 3
+            a:nth-child(1),
+            a:nth-child(2),
+            a:nth-child(3) {
+                transform: translate(25vw, 0) scaleX(0);
+                opacity: 0;
+                visibility: hidden;
             }
 
-            a {
-                text-decoration: none;
-                text-transform: uppercase;
-                color: #000;
-                font-weight: 700;
-                font-size: 14px;
+            //logo
+            a:nth-child(4){
+
+            }
+
+            //last 3
+            a:nth-child(5),
+            a:nth-child(6),
+            a:nth-child(7) {
+                transform: translate(-25vw, 0) scaleX(0);
+                opacity: 0;
+                visibility: hidden;
             }
         }
     }
+}
 
-    [data-navigation-underline] {
+[data-navigation-underline] {
 
-        transition: all .2s;
-        animation: fadein 2s;
+    transition: all .2s;
+    animation: fadein 2s;
 
-        height: 2px;
-        position: absolute;
-        left: 10px;
-        width: 0px;
-        bottom: 0px;
-        background: $orange;
-        pointer-events: none;
-    }
+    height: 2px;
+    position: absolute;
+    left: 10px;
+    width: 0px;
+    bottom: 20px;
+    background: $orange;
+    pointer-events: none;
 }

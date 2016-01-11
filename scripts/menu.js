@@ -49,17 +49,20 @@ $(function(){
     bar           = $elem,
     moveUnderline = function( ev, item ){
 
-        var link = item || $(this),
+        var href = item || $(this),
+        link     = href.find('span'),
         marginL  = parseInt(link.css('marginLeft')),
-        paddingL = parseInt(nav.css('paddingLeft')),
+        paddingL = 0,
         left     = (link.position().left + marginL) + paddingL,
         width    = link.width();
 
-        bar.css({
-            left: left,
-            width: width
-        });
+        if( !link.find('img').length ){
 
+            bar.css({
+                left: left,
+                width: width
+            });
+        }
     },
     initialPositioning = function(){
 
@@ -75,13 +78,21 @@ $(function(){
     moveActiveClass = function(){
         items.removeClass('active');
         $(this).addClass('active');
+    },
+    spanify = function(){
+
+        _.each( items, function( item ){
+            var link = $(item);
+            link.html( '<span>' + link.html() + '</span>' );
+        });
     };
 
     nav.on('mouseover', 'a', moveUnderline)
        .on('click', 'a', moveActiveClass)
        .on('mouseleave', initialPositioning)
-       .ready(initialPositioning);
+       .ready(spanify);
 
+    $(window).on('load', initialPositioning);
     $(document).on('refreshUnderline', initialPositioning);
 });
 
@@ -90,17 +101,37 @@ $(function(){
 */
 $(function(){
 
+    var header    = $('body > header'),
+    lastScrollTop = 0,
+    fireRefresh = function(){
+        setTimeout(function(){
+
+            if( !header.hasClass('mini') ){
+                $(document).trigger('refreshUnderline');
+            }
+        }, 250);
+    };
+
     $(window).on('scroll', function(){
 
-        var header = $('header h1, header .tel'),
-        scrollT    = $(window).scrollTop(),
-        range      = 10,
-        opacity    = (1 - (((scrollT + range) / range) - 1)).toFixed(2);
+        var dist = $(document).scrollTop();
 
-        if( opacity < 0.00 ){
-            opacity = 0;
+        if( dist > 60 ){
+
+            if( dist > lastScrollTop ){
+
+                if( !header.hasClass('mini') ){
+                    header.addClass('mini');
+                }
+            }
+            else {
+                header.removeClass('mini').promise().done(fireRefresh);
+            }
+        }
+        else {
+            header.removeClass('mini').promise().done(fireRefresh);
         }
 
-        header.css('opacity', opacity);
+        lastScrollTop = dist;
     });
 });

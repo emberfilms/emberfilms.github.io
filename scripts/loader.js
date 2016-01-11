@@ -21,5 +21,5 @@ $(function(){
         setTimeout(loaded, 5000);
     }
 
-    $(document).on('videoLoaded', loaded);
+    $(window).on('load', loaded);
 });

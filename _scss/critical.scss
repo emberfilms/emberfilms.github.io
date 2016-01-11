@@ -10,286 +10,53 @@ body {
     color: #000;
     background: #F3F3F3;
     font-family: 'Lato', Helvetica, Sans-serif;
-
-    &.menu-open {
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    border-top: $gap solid #fff;
-}
-
-#main-container {
-
-    transition: all .5s $easing;
-    margin: 0 auto;
-    padding-top: 120px;
-    overflow-x: hidden;
-
-    .menu-open & {
-        transform: scale(0.97);
-        position: relative;
-        opacity: 0.5;
-    }
-}
-
-.mast {
-    opacity: 0;
-    z-index: 20;
-
-    .no-js & {
-        opacity: 1;
-    }
-
-    .loaded & {
-        opacity: 1
-    }
-}
-
-.menu-button {
-
-    margin-top: 50px;
-    position: relative;
-    z-index: 100;
-
-    background: none;
-    border: none;
-    width: 80px;
-    padding-left: 0;
-
-    color: $orange;
-    font-size: 12px;
-    line-height: 16px;
-    display: block;
-    text-transform: uppercase;
-    font-family: 'Lato';
-    font-weight: 700;
-    transition: all .3s ease;
-    cursor: pointer;
-    outline: none;
-    box-shadow: none;
-
-    .no-js & {
-        display: none;
-    }
-
-    .open {
-        display: block
-    }
-
-    .close {
-        display: none;
-    }
-
-    .menu-open & {
-        .open {
-            display: none;
-        }
-        .close {
-            display: block;
-        }
-    }
-
-    i {
-        width: 17px;
-        display: block;
-        float: left;
-        margin-right: 10px;
-        padding: 1px 0;
-
-        span {
-            height: 2px;
-            width: 100%;
-            display: block;
-            background: $orange;
-            margin: 3px 0;
-            transition: all .3s cubic-bezier(.445,.05,.55,.95);
-            position: relative;
-
-            .menu-open & {
-
-                &:first-child {
-                    transform: rotate(45deg) translate(0,-5px);
-                    transform-origin: top left;
-                }
-
-                &:last-child {
-                    transform-origin: bottom left;
-                    transform: rotate(-45deg) translate(0,4.5px);
-                    overflow: hidden;
-
-                    &:before {
-                        transition-delay: .1s;
-                        left: initial;
-                        right: 0;
-                    }
-                }
-            }
-
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: #000;
-                height: 100%;
-                width: 0%;
-                display: block;
-                transition: all .3s ease;
-            }
-        }
-    }
-
-    .open,
-    .close {
-        transition: all .3s ease;
-    }
-
-    body:not(.menu-open) & {
-        &:hover  {
-            i {
-                span:first-child {
-                    transform: translate(0,-2px);
-                }
-                span:last-child {
-                    transform: translate(0,2px);
-                }
-            }
-        }
-    }
-
-    .menu-open & {
-        &:hover {
-
-            span {
-                color: #000
-            }
-
-            i {
-                span {
-                    &:before {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
 }
 
 header {
-    text-align: center;
+    z-index: 10;
 
-    position: absolute;
-    left: 50%;
+    position: fixed;
     top: 0;
-    transform: translateX(-50%);
-    z-index: 0;
-
+    left: 0;
     width: 100%;
 
-    .no-js & {
-        margin: 0;
-        padding: 0;
-        position: static;
-        transform: none;
-    }
-
-    h1 {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 7px 0;
-        width: auto;
-        overflow: hidden;
-
-        position: relative;
-        z-index: 2;
-
-        color: $orange;
-        text-transform: uppercase;
-        font-size: 16px;
-
-        transition: opacity .3s;
-
-        .menu-open & {
-            opacity: 0 !important;
-        }
-
-        .no-js & {
-            margin: 0;
-        }
-
-        &:before {
-            content: "";
-
-            display: block;
-            position: absolute;
-            z-index: -1;
-            left: 50%;
-            top: 0;
-            transform: translate3d(-50%, -25%, 0) rotate(30deg);
-
-            width: 2px;
-            height: 200%;
-            background: black;
-        }
-
-        &:after {
-            content: "";
-
-            display: block;
-            position: absolute;
-            z-index: -1;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-
-            width: 100%;
-            height: 1.1em;
-            background: #F3F3F3;
-        }
-
-
-        .js & {
-            //transition: all .7s ease-in-out 1s;
-            transform: translateX(30%);
-            opacity: 0;
-        }
-
-        .loaded & {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    .tel {
-
+    &:before {
+        transition: all .3s ease;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+        content: "";
         position: absolute;
-        bottom: 10px;
-        right: 25px;
+        z-index: -1;
+        width: 100%;
+        height: 80%;
+    }
+}
 
-        .menu-open & {
-            opacity: 0 !important;
-            visibility: hidden;
-            pointer-events: none;
-        }
+nav {
 
-        @media(min-width: $xlarge){
-            right: 35px;
-        }
+    padding-top: 10px;
 
-        color: $orange;
-        transition: all .5s ease;
+    a {
+        display: block;
+        float: left;
+        width: 14%;
+        text-align: center;
+        line-height: 40px;
         text-decoration: none;
+        text-transform: uppercase;
+        font-family: Oswald;
+        color: #fff;
         font-size: 12px;
-        font-weight: 700;
-
-        &:first-letter {
-            color: #000;
-            padding-right: 2px;
-        }
+        letter-spacing: 1px;
+        overflow: hidden;
+        transition: all .4s ease;
 
         &:hover {
-            color: #000;
+            color: #FF6400;
+        }
+
+        img {
+            max-height: 40px;
+            max-width: 100%;
         }
     }
 }

@@ -5,9 +5,11 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
 
 {% assign rows = site.work | where: "showcase","yep" | sort: "row" | group_by: "row" %}
 
-<section id="showreel-container" class="uk-container uk-container-center uk-position-relative uk-position-z-index">
+<section id="showreel-container">
 
-    <video width="1130" autoplay loop preload="auto">
+    <button id="play-showreel" class="loading"></button>
+
+    <video width="1130" loop preload="auto" class="loading">
         <source src="{{page.showreel}}" type="video/mp4">
     </video>
 
