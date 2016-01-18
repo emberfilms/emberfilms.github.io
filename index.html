@@ -1,6 +1,14 @@
 ---
 layout: default
-showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a72362ab44570e23b310c710d125&profile_id=119
+showreel: https://player.vimeo.com/external/151907684.hd.mp4?s=915e58858747f66d456b107f3e58327953018fa8&profile_id=119
+
+logos:
+    - title: "some company"
+      logo: sky.svg
+    - title: "some 2"
+      logo: sky.svg
+    - title: "some 3"
+      logo: sky.svg
 
 ---
 
@@ -10,10 +18,9 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
 
     <button id="play-showreel" class="loading"></button>
 
-    <video width="1130" loop preload="auto" class="loading">
+    <video width="1130" preload="auto" class="loading" data-aspect="16:9">
         <source src="{{page.showreel}}" type="video/mp4">
     </video>
-
 </section>
 
 <section id="value-prop" class="uk-container-center uk-container">
@@ -35,7 +42,6 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
-
 </section>
 
 
@@ -45,50 +51,49 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
 
     {% for row in rows %}
     {% assign ordered_row = row.items | sort: "position" %}
+    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
     {% assign hero = ordered_row[0] %}
 
-    <div class="uk-grid uk-grid-small">
-
-        <div class="uk-width-1-1 uk-width-medium-1-2 hero">
-            <div>
-                <div class="uk-panel">
-                    <a data-aspect="16:9" href="">
-                        <div class="bg" style="background-image: url(/assets/img/work/{{hero.thumbnail}})"></div>
-                        <div class="caption">
-                            <h2>{{hero.title}}</h2>
-                            <span>{{hero.caption}}</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+        {% if thecycle == 'odd' %}
+        <div class="uk-grid uk-grid-small">
+            {% include showcase_hero.html %}
+            {% include showcase_grid.html %}
         </div>
+        {% endif %}
 
-        <div class="uk-width-1-1 uk-width-medium-1-2">
-
-            <div class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
-                {% for work in ordered_row %}
-                {% if work.position > 1 %}
-
-                <div>
-                    <div class="uk-panel">
-                        <a data-aspect="16:9" href="/{{work.permalink}}">
-                            <div class="bg" style="background-image: url(/assets/img/work/{{work.thumbnail}})"></div>
-                            <div class="caption">
-                                <h2>{{work.title}}</h2>
-                                <span>{{work.caption}}</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                {% endif %}
-                {% endfor %}
-            </div>
-
+        {% if thecycle == 'even' %}
+        <div class="uk-grid uk-grid-small">
+            {% include showcase_grid.html %}
+            {% include showcase_hero.html %}
         </div>
+        {% endif %}
+
+    {% endfor %}
 
     </div>
-    {% endfor %}
+</section>
+
+<section id="clients" class="uk-container-center uk-container">
+
+    <div class="uk-block uk-text-center">
+
+        <h2>We work with these guys.</h2>
+
+        <div data-uk-slider>
+
+            <div class="uk-slider-container">
+                <ul class="uk-slider uk-grid-width-medium-1-4">
+
+                    {% for l in page.logos %}
+                    <li>
+                        <img src="/assets/img/logos/{{l.logo}}" alt="{{l.title}}">
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+        </div>
 
     </div>
 </section>

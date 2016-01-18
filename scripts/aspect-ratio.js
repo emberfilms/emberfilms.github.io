@@ -22,8 +22,20 @@ $(function(){
                 width = height * diff;
             }
 
+            //hero hack
+            if( element.data('aspect-offset') ){
+                height = height + parseInt( element.data('aspect-offset') );
+            }
+
             element.css({width: width, height: height});
         });
+
+        try {
+            UIkit.trigger('changed.uk.dom');
+        }
+        catch(e){
+            console.log('uikit not loaded yet');
+        }
     }
 
     $(window).on('resize load ready', _.debounce(calculate));

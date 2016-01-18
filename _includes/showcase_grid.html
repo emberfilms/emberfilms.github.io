@@ -1,0 +1,23 @@
+<div class="uk-width-1-1 uk-width-medium-1-2">
+
+    <div class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+        {% for work in ordered_row %}
+        {% if work.position > 1 %}
+
+        <div>
+            <div class="uk-panel">
+                <a data-aspect="16:9" href="/{{work.permalink}}">
+                    <div class="bg" style="background-image: url(/assets/img/work/{{work.thumbnail}})"></div>
+                    <div class="caption">
+                        <h2>{{work.title}}</h2>
+                        <span>{{work.caption}}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
