@@ -4,15 +4,12 @@ layout: default
 title:  "The Hunt 1"
 description: "some desc with an even longer desctiption"
 caption: "some intro"
-thumbnail: "http://emberfilms.co.uk/images/home/enchanted-kingdoms.jpg"
+thumbnail: "5.fade.jpg"
 
 permalink: the-hunt-1
 showcase: "yep"
 row: 1
 position: 2
-width: 1
-height: 1
-
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

@@ -4,14 +4,12 @@ layout: default
 title:  "The Hunt is a long name"
 description: "some desc"
 caption: "some intro"
-thumbnail: "http://emberfilms.co.uk/images/home/lotus-back-to-school.jpg"
+thumbnail: "0.block-and-last.jpg"
 
 permalink: the-hunt
 showcase: "yep"
 row: 1
 position: 1
-width: 3
-height: 3
 
 ---
 

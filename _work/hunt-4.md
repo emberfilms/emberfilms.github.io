@@ -1,15 +1,15 @@
 ---
 layout: default
 
-title:  "The Hunt is a long name"
-description: "some desc with an even longer desctiption"
-caption: "some desc with an even longer desctiption"
-thumbnail: "1.the-letter.jpg"
+title:  "The Hunt 4"
+description: "some desc"
+caption: "some intro"
+thumbnail: "4.herschel.jpg"
 
-permalink: the-hunt-2
+permalink: the-hunt-4
 showcase: "yep"
 row: 1
-position: 2
+position: 4
 
 ---
 

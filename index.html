@@ -1,6 +1,7 @@
 ---
 layout: default
 showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a72362ab44570e23b310c710d125&profile_id=119
+
 ---
 
 {% assign rows = site.work | where: "showcase","yep" | sort: "row" | group_by: "row" %}
@@ -18,12 +19,18 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
 <section id="value-prop" class="uk-container-center uk-container">
 
     <div class="uk-block" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100}">
-        <div class="prop-text uk-panel">
+        <div class="prop-text uk-panel uk-clearfix">
             <h2>Inspired by the stories we tell.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
@@ -40,85 +47,43 @@ showreel: https://player.vimeo.com/external/109556361.hd.mp4?s=ff164e32eea1a7236
     {% assign ordered_row = row.items | sort: "position" %}
     {% assign hero = ordered_row[0] %}
 
-    <div class="uk-grid uk-grid-collapse">
+    <div class="uk-grid uk-grid-small">
 
-        <div class="uk-width-1-1 uk-width-medium-4-10">
-            <div class="width-{{hero.width}} height-{{hero.height}}" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100}">
-                <a href="">
-                    <div class="bg" style="background-image: url({{hero.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{hero.title}}</h2>
-                        <span>{{hero.caption}}</span>
-                    </div>
-                </a>
+        <div class="uk-width-1-1 uk-width-medium-1-2 hero">
+            <div>
+                <div class="uk-panel">
+                    <a data-aspect="16:9" href="">
+                        <div class="bg" style="background-image: url(/assets/img/work/{{hero.thumbnail}})"></div>
+                        <div class="caption">
+                            <h2>{{hero.title}}</h2>
+                            <span>{{hero.caption}}</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="uk-width-1-1 uk-width-medium-6-10 uk-clearfix">
+        <div class="uk-width-1-1 uk-width-medium-1-2">
 
-            {% for work in ordered_row %}
-            {% if work.position > 1 %}
+            <div class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+                {% for work in ordered_row %}
+                {% if work.position > 1 %}
 
-            <div class="width-{{work.width}} height-{{work.height}}" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100,}">
-                <a href="/{{work.permalink}}">
-                    <div class="bg" style="background-image: url({{work.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{work.title}}</h2>
-                        <span>{{work.caption}}</span>
+                <div>
+                    <div class="uk-panel">
+                        <a data-aspect="16:9" href="/{{work.permalink}}">
+                            <div class="bg" style="background-image: url(/assets/img/work/{{work.thumbnail}})"></div>
+                            <div class="caption">
+                                <h2>{{work.title}}</h2>
+                                <span>{{work.caption}}</span>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
+
+                {% endif %}
+                {% endfor %}
             </div>
-
-            {% endif %}
-            {% endfor %}
-
-        </div>
-
-    </div>
-    {% endfor %}
-
-    </div>
-</section>
-
-<section id="showcase" class="uk-position-relative uk-position-z-index">
-
-    <div class="uk-container uk-container-center">
-
-    {% for row in rows %}
-    {% assign ordered_row = row.items | sort: "position" %}
-    {% assign hero = ordered_row[0] %}
-
-    <div class="uk-grid uk-grid-collapse">
-
-        <div class="uk-width-1-1 uk-width-medium-4-10">
-            <div class="width-{{hero.width}} height-{{hero.height}}" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100}">
-                <a href="">
-                    <div class="bg" style="background-image: url({{hero.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{hero.title}}</h2>
-                        <span>{{hero.caption}}</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="uk-width-1-1 uk-width-medium-6-10 uk-clearfix">
-
-            {% for work in ordered_row %}
-            {% if work.position > 1 %}
-
-            <div class="width-{{work.width}} height-{{work.height}}" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100,}">
-                <a href="/{{work.permalink}}">
-                    <div class="bg" style="background-image: url({{work.thumbnail}})"></div>
-                    <div class="caption">
-                        <h2>{{work.title}}</h2>
-                        <span>{{work.caption}}</span>
-                    </div>
-                </a>
-            </div>
-
-            {% endif %}
-            {% endfor %}
 
         </div>
 

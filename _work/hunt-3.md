@@ -4,14 +4,12 @@ layout: default
 title:  "The Hunt 3"
 description: "some desc"
 caption: "some intro"
-thumbnail: "http://emberfilms.co.uk/images/home/the-letter.jpg"
+thumbnail: "2.nike.jpg"
 
 permalink: the-hunt-3
 showcase: "yep"
 row: 1
-position: 4
-width: 3
-height: 2
+position: 3
 
 ---
 
