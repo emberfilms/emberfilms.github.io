@@ -38,5 +38,5 @@ $(function(){
         }
     }
 
-    $(window).on('resize load ready', _.debounce(calculate));
+    $(window).on('resize load ready', _.debounce(calculate, 200));
 });

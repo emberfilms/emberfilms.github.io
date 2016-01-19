@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: contact/
+title: Get in touch
+---
+
+        <div class="intro uk-clearfix">
+            <h1>Get in touch</h1>
+        </div>
+
+        <div class="uk-grid uk-grid-width-medium-1-2 uk-grid-collapse uk-margin-large-top">
+
+        {% for o in site.offices %}
+        {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+            <div style="background-color: #{{o.bg-color}}; color: #{{o.text-color}}">
+                <div data-aspect="16:9">
+                    <div class="office uk-panel uk-panel-space uk-float-{% if thecycle == 'odd' %}right{% else %}left{% endif %}"  itemscope="" itemtype="http://schema.org/ContactPoint">
+                        <h2 itemprop="name">{{o.title}}</h2>
+                        <p itemprop="telephone">{{o.phone}}</p>
+                        <p itemprop="email">{{o.email}}</p>
+                        <address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">{{o.address}}</address>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+        </div>

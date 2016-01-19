@@ -1,0 +1,86 @@
+.contact {
+
+    background-color: $background;
+
+    #main-container {
+        margin-top: $top-margin;
+    }
+
+    .intro {
+
+        h1 {
+            font-family: 'Bodoni', 'Arapey';
+            font-size: 52px;
+            text-align: center;
+            font-style: italic;
+            letter-spacing: -2px;
+            color: #fff;
+
+            &:after {
+                display: block;
+                background: $orange;
+                height: 1px;
+                width: 80px;
+                content: "";
+                margin: 40px auto;
+            }
+        }
+
+        p {
+            font-family: 'Bodoni', 'Arapey', Georgia, Serif;
+            font-size: 21px;
+            line-height: 25px;
+            text-align: justify;
+            float: left;
+            display: block;
+            color: #fff;
+
+            width: 48%;
+            margin-right: 2%;
+
+            &:not(:last-child){
+                &:first-letter {
+                    float: left;
+                    color: $orange;
+                    font-size: 75px;
+                    line-height: 60px;
+                    padding-top: 4px;
+                    padding-right: 8px;
+                    padding-left: 3px;
+                }
+            }
+
+            &:last-child {
+                width: 50%;
+                margin-right: 0;
+            }
+        }
+
+    }
+
+    .office {
+
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        transition: all .5s ease;
+
+        h2 {
+            font-family: 'Bodoni', 'Arapey';
+            font-size: 52px;
+            font-style: italic;
+            letter-spacing: -2px;
+        }
+
+        p {
+            line-height: 25px;
+        }
+
+        address {
+            margin-top: 10px;
+        }
+
+    }
+
+}

@@ -11,12 +11,29 @@ facebook: "https://www.facebook.com/EmberFilms"
 instagram:  "https://www.instagram.com/ember_films/"
 vimeo: "https://vimeo.com/emberfilms"
 
+offices:
+    - title: London
+      phone: +44 (0) 8448 099 567
+      email: info@emberfilms.co.uk
+      address: 'Unit 7 & 8,<br/> Hackford Business Centre,<br/> Norfolk,<br/>  NR18 9HF'
+      text-color: C65107
+      bg-color: ffffff
+    - title: Norwich
+      phone: +44 (0) 8448 099 567
+      email: info@emberfilms.co.uk
+      address: 'Grantham Road,<br/> Chiswick,<br/> London,<br/> E12 5LX'
+      text-color: ffffff
+      bg-color: C65107
+
 
 markdown: kramdown
 permalink: /blog/:title/
 
 collections:
     work:
+        output: true
+        permalink: :permalink/
+    showreels:
         output: true
         permalink: :permalink/
 

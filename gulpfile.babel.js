@@ -168,6 +168,7 @@ gulp.task('serve', ['clean','jekyll'], (done) => {
     browserSync({
         notify: false,
         port: 9000,
+        open: false,
         server: {
             baseDir: [env, '.'],
             routes: {
