@@ -257,7 +257,7 @@ gulp.task('wiredep', () => {
 * Alias task to force order running
 */
 gulp.task('build', (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'google-things', 'images', 'styles'], ['minify', 'extras'],'inline-critical', cb);
+    return rs('clean', ['lint', 'jekyll', 'google-things', 'images'], 'styles', ['minify', 'extras'],'inline-critical', cb);
 });
 
 /*

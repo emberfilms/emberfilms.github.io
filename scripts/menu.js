@@ -123,13 +123,20 @@ $(function(){
                 if( !header.hasClass('mini') ){
                     header.addClass('mini');
                 }
+
+                if( dist > 100 ){
+
+                    if( !header.hasClass('hide') ){
+                        header.addClass('hide');
+                    }
+                }
             }
             else {
-                header.removeClass('mini').promise().done(fireRefresh);
+                header.removeClass('mini hide').promise().done(fireRefresh);
             }
         }
         else {
-            header.removeClass('mini').promise().done(fireRefresh);
+            header.removeClass('mini hide').promise().done(fireRefresh);
         }
 
         lastScrollTop = dist;

@@ -1,5 +1,8 @@
 header {
 
+    transition: transform .4s ease;
+    transition-delay: 0s;
+
     &.mini {
 
         //background: none;
@@ -39,6 +42,11 @@ header {
                 visibility: hidden;
             }
         }
+    }
+
+    &.hide {
+        transform: translateY(-100px);
+        transition-delay: .5s;
     }
 }
 
