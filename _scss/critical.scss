@@ -8,7 +8,7 @@ body {
     -webkit-text-stroke: 0.25px;
     -moz-osx-font-smoothing: grayscale;
     color: #000;
-    background: #F3F3F3;
+    background: #000;
     font-family: 'Lato', Helvetica, Sans-serif;
 }
 
@@ -22,18 +22,18 @@ header {
 
     &:before {
         transition: all .3s ease;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+        background: #000;
         content: "";
         position: absolute;
         z-index: -1;
         width: 100%;
-        height: 80%;
+        height: 100%;
     }
 }
 
 nav {
 
-    padding-top: 10px;
+    padding-top: 20px;
 
     a {
         display: block;
@@ -51,6 +51,13 @@ nav {
         overflow: hidden;
         transition: all .4s ease;
 
+        position: relative;
+        z-index: 1;
+
+        &:nth-child(4){
+            z-index: 2;
+        }
+
         &:hover {
             color: #FF6400;
         }
@@ -58,6 +65,9 @@ nav {
         img {
             max-height: 40px;
             max-width: 100%;
+
+            position: relative;
+            z-index: 2;
         }
     }
 }

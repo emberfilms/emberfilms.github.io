@@ -4,7 +4,7 @@ layout: default
 title:  "The Hunt is a long name"
 description: "some desc"
 caption: "some intro"
-thumbnail: "0.block-and-last.jpg"
+thumbnail: "the-hunt.jpg"
 
 permalink: the-hunt
 showcase: "yep"

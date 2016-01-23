@@ -1,12 +1,12 @@
 #showreel-container {
 
-    background-image: url('/assets/img/common/homepage-hero.jpg');
+   // background-image: url('/assets/img/common/homepage-hero.jpg');
     background-size: cover;
     background-position: bottom center;
 
-    min-height: 600px;
-    height: 100vh;
     position: relative;
+
+    margin-top: 80px;
 
     #play-showreel {
 
@@ -64,10 +64,6 @@
 
         margin: 0 auto;
         display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         transition: opacity .4s ease;
         max-width: 100%;
 
@@ -79,18 +75,32 @@
             visibility: hidden;
         }
     }
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        height: auto;
+
+        width: 600px;
+        width: 30vw;
+
+        transform: translate(-50%, -50%);
+    }
 }
 
 
 #value-prop {
 
     h2 {
-        font-family: 'Bodoni', 'Arapey';
+        font-family: 'Montserrat';
+        font-weight: 100;
         font-size: 52px;
         text-align: center;
-        font-style: italic;
         letter-spacing: -2px;
-        color: #000;
+        color: #fff;
+        text-transform: lowercase;
 
         &:after {
             display: block;
@@ -109,6 +119,7 @@
         text-align: justify;
         float: left;
         display: block;
+        color: #fff;
 
         width: 48%;
         margin-right: 2%;
@@ -221,12 +232,12 @@
 #clients {
 
     h2 {
-        font-family: 'Bodoni', 'Arapey';
-        font-size: 52px;
+        font-family: 'Montserrat';
+        font-size: 28px;
         text-align: center;
-        font-style: italic;
-        letter-spacing: -2px;
-        color: #000;
+        font-weight: 200;
+        text-transform: uppercase;
+        color: #fff;
 
         &:after {
             display: block;

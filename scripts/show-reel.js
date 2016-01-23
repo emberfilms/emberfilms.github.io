@@ -6,7 +6,7 @@ $(function() {
         playerButton  = $('#play-showreel'),
         html          = $('html');
 
-    if( player.length ){
+    if( player.length && 1 == 2){
 
         player[0].addEventListener('canplaythrough', function(){
             playerButton.removeClass('loading');
