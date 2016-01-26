@@ -18,8 +18,6 @@ header {
     $height: 35px;
     $padding: 25px;
 
-    margin-bottom: $padding;
-
     .top-bar {
 
         border-bottom: $border;
@@ -119,3 +117,12 @@ header {
         }
     }
 }
+
+/* .ruler {
+    position: absolute;
+    top: 165px;
+    left: 10px;
+    width: 100%;
+    height: 1px;
+    background: red;
+} */

@@ -1,5 +1,9 @@
 header {
 
+    .nav {
+        height: 40px;
+    }
+
     [data-navigation-underline] {
 
         transition: all .2s;
@@ -9,9 +13,43 @@ header {
         position: absolute;
         left: 10px;
         width: 0px;
-        bottom: -5px;
+        bottom: 13px;
         background: $orange;
         pointer-events: none;
+    }
+
+    .mini-nav & {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+
+        top: -165px;
+
+        transition: top .3s ease;
+        //transform: translateY(-100%);
+    }
+
+    .mini-nav.peek & {
+        top: 0;
+
+        .logo,
+        .top-bar {
+            display: none;
+        }
+
+        .nav {
+            margin-top: 15px;
+        }
+    }
+
+}
+
+.mini-nav {
+    #main-container {
+        margin-top: 165px;
     }
 
 }

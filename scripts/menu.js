@@ -1,44 +1,6 @@
 'use strict';
 
 /*
-* Opening / Closing System
-*/
-$(function(){
-
-    var btn = $('.menu-button'),
-    body    = $('body');
-
-    function closeMenu(e){
-
-        var t = $(e.target),
-            p = t.parents('nav');
-
-        if( !p.length ){
-            body.removeClass('menu-open');
-            body.off('click', closeMenu);
-        }
-    }
-
-    function toggleMenu(){
-
-        body.toggleClass('menu-open').promise().done(function(){
-
-            if( body.hasClass('menu-open') ){
-
-                $(document).trigger('refreshUnderline');
-
-                setTimeout(function(){
-                    body.on('click', closeMenu);
-                }, 1);
-            }
-
-        });
-    }
-
-    btn.on('click', toggleMenu);
-});
-
-/*
 * Underline animation
 */
 $(function(){
@@ -103,6 +65,7 @@ $(function(){
 $(function(){
 
     var header    = $('body > header'),
+    body          = $('body'),
     lastScrollTop = 0,
     fireRefresh = function(){
         setTimeout(function(){
@@ -115,29 +78,28 @@ $(function(){
 
     $(window).on('scroll', function(){
 
-        var dist = $(document).scrollTop();
+        var dist = $(document).scrollTop(),
+            offset = header[0].getBoundingClientRect().height;
 
-        if( dist > 60 ){
+            console.log(offset);
+
+        if( dist > offset ){
 
             if( dist > lastScrollTop ){
 
-                if( !header.hasClass('mini') ){
-                    header.addClass('mini');
+                if( !body.hasClass('mini-nav') ){
+                    body.addClass('mini-nav');
                 }
 
-                if( dist > 100 ){
+                body.removeClass('peek');
 
-                    if( !header.hasClass('hide') ){
-                        header.addClass('hide');
-                    }
-                }
             }
             else {
-                header.removeClass('mini hide').promise().done(fireRefresh);
+                body.addClass('peek').promise().done(fireRefresh);
             }
         }
         else {
-            header.removeClass('mini hide').promise().done(fireRefresh);
+            body.removeClass('mini-nav peek').promise().done(fireRefresh);
         }
 
         lastScrollTop = dist;
