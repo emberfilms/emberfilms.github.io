@@ -6,7 +6,7 @@ description: "some desc with an even longer desctiption"
 caption: "some intro"
 thumbnail: "the-hunt.jpg"
 
-permalink: the-hunt-1
+permalink: the-hunt-10000
 showcase: "yep"
 row: 1
 position: 2
