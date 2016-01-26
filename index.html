@@ -26,41 +26,80 @@ logos:
 
 <section id="value-prop" class="uk-container-center uk-container">
 
-    <div class="uk-block" data-uk-scrollspy="{cls:'uk-animation-slide-bottom uk-animation-fade', topoffset: -100}">
-        <div class="prop-text uk-panel uk-clearfix">
-            <h2>An Emmy award-winning production company devoted to creating visually stunning content for broadcast, cinema and the web.</h2>
+    <div class="uk-block">
+        <div class="prop-text uk-panel">
+            <h2>Ember is an emmy award-winning production company devoted to creating visually stunning content for broadcast, cinema and the web.</h2>
         </div>
     </div>
 </section>
 
-
-<section id="showcase" class="uk-position-relative uk-position-z-index">
+<section id="showcase">
 
     <div class="uk-container uk-container-center">
 
-    {% for row in rows %}
-    {% assign ordered_row = row.items | sort: "position" %}
-    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-    {% assign hero = ordered_row[0] %}
+        <h2>Recent Work</h2>
 
-        {% if thecycle == 'odd' %}
-        <div class="uk-grid uk-grid-small">
-            {% include showcase_hero.html %}
-            {% include showcase_grid.html %}
+        <div class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+
+            <div>
+                <div class="uk-panel">
+                    <a data-aspect="16:9" href="/">
+                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
+                        <img src="/assets/img/logos/sky.svg" alt="svg">
+                        <div class="caption">
+                            <h3>Hidden Kingdoms</h3>
+                            <span>BBC</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="uk-panel">
+                    <a data-aspect="16:9" href="/">
+                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
+                        <img src="/assets/img/logos/sky.svg" alt="svg">
+                        <div class="caption">
+                            <h3>Hidden Kingdoms</h3>
+                            <span>BBC</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="uk-panel">
+                    <a data-aspect="16:9" href="/">
+                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
+                        <img src="/assets/img/logos/sky.svg" alt="svg">
+                        <div class="caption">
+                            <h3>Hidden Kingdoms</h3>
+                            <span>BBC</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="uk-panel">
+                    <a data-aspect="16:9" href="/">
+                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
+                        <img src="/assets/img/logos/sky.svg" alt="svg">
+                        <div class="caption">
+                            <h3>Hidden Kingdoms</h3>
+                            <span>BBC</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
-        {% endif %}
-
-        {% if thecycle == 'even' %}
-        <div class="uk-grid uk-grid-small">
-            {% include showcase_grid.html %}
-            {% include showcase_hero.html %}
-        </div>
-        {% endif %}
-
-    {% endfor %}
 
     </div>
+
 </section>
+
+
 
 <section id="clients" class="uk-container-center uk-container">
 

@@ -1,65 +1,17 @@
 header {
 
-    transition: transform .4s ease;
-    transition-delay: 0s;
+    [data-navigation-underline] {
 
-    &.mini {
+        transition: all .2s;
+        animation: fadein 2s;
 
-        //background: none;
-        //pointer-events: none;
-
-        &:before {
-            transform: translate(0, -100%);
-        }
-
-        [data-navigation-underline] {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        nav {
-
-            //first 3
-            a:nth-child(1),
-            a:nth-child(2),
-            a:nth-child(3) {
-                transform: translate(25vw, 0) scaleX(0);
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            //logo
-            a:nth-child(4){
-
-            }
-
-            //last 3
-            a:nth-child(5),
-            a:nth-child(6),
-            a:nth-child(7) {
-                transform: translate(-25vw, 0) scaleX(0);
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
+        height: 2px;
+        position: absolute;
+        left: 10px;
+        width: 0px;
+        bottom: -5px;
+        background: $orange;
+        pointer-events: none;
     }
 
-    &.hide {
-        transform: translateY(-100px);
-        transition-delay: .5s;
-    }
-}
-
-[data-navigation-underline] {
-
-    transition: all .2s;
-    animation: fadein 2s;
-
-    height: 2px;
-    position: absolute;
-    left: 10px;
-    width: 0px;
-    bottom: 20px;
-    background: $orange;
-    pointer-events: none;
 }

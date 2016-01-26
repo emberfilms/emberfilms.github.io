@@ -1,10 +1,16 @@
-@keyframes rotate {
+@keyframes loadbars {
     0% {
-        transform: rotate(0deg);
+        height: 10px;
+        margin-top: 25px;
+    }
+    50% {
+        height:50px;
+        margin-top: 0px;
     }
     100% {
-        transform: rotate(360deg);
-    };
+        height: 10px;
+        margin-top: 25px;
+    }
 }
 
 #loader {
@@ -18,46 +24,26 @@
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    list-style: none;
 
-    $size: 120px;
+    li {
+        background-color: #000;
+        width: 10px;
+        height: 10px;
+        float: right;
+        margin-right: 5px;
+        box-shadow: 0px 100px 20px rgba(0,0,0,0.2);
 
-    width: $size;
-    height: $size;
-
-    > div:first-child {
-        position: absolute;
-        width: $size;
-        height: $size;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
-
-        div {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0);
-            color: $orange;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-family: 'Lato', 'Helvetica', Arial;
+        &:first-child {
+            animation: loadbars 0.7s cubic-bezier(0.645,0.045,0.355,1) infinite 0s;
         }
-    }
 
-    > div:last-child {
-        position: absolute;
-        width: $size / 2;
-        height: $size;
-        overflow: hidden;
+        &:nth-child(2){
+            animation: loadbars 0.7s ease-in-out infinite -0.2s;
+        }
 
-        mask-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0));
-        transform-origin: ($size / 2) ($size / 2);
-        animation: rotate 2s infinite linear;
-
-        div {
-            width: $size;
-            height: $size;
-            border-radius: 50%;
-            box-shadow: inset 0 0 0 1px rgba(255, 100, 0, 0.75);
+        &:last-child {
+            animation: loadbars 0.7s ease-in-out infinite -0.4s;
         }
     }
 }

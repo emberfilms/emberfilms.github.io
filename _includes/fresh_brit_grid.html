@@ -1,0 +1,27 @@
+<section id="showcase" class="uk-position-relative uk-position-z-index">
+
+    <div class="uk-container uk-container-center">
+
+    {% for row in rows %}
+    {% assign ordered_row = row.items | sort: "position" %}
+    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+    {% assign hero = ordered_row[0] %}
+
+        {% if thecycle == 'odd' %}
+        <div class="uk-grid uk-grid-small">
+            {% include showcase_hero.html %}
+            {% include showcase_grid.html %}
+        </div>
+        {% endif %}
+
+        {% if thecycle == 'even' %}
+        <div class="uk-grid uk-grid-small">
+            {% include showcase_grid.html %}
+            {% include showcase_hero.html %}
+        </div>
+        {% endif %}
+
+    {% endfor %}
+
+    </div>
+</section>
