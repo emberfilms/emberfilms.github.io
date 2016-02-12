@@ -27,8 +27,8 @@ header {
 
         .uk-container {
             height: $height;
-            border-left: $border;
-            border-right: $border;
+            //border-left: $border;
+            //border-right: $border;
             padding: 0 $padding;
         }
 
@@ -49,18 +49,7 @@ header {
                 font-weight: 300;
             }
 
-            &:first-child {
-                padding-right: $padding;
-                border-right: $border;
-            }
-
-            &:nth-child(2){
-                padding-right: $padding;
-                padding-left: $padding;
-                border-right: $border;
-            }
-
-            &:nth-child(3){
+            &:first-child{
                 float: right;
                 padding-left: $padding;
                 text-transform: lowercase;
@@ -71,7 +60,7 @@ header {
                 padding-right: $padding;
                 padding-left: $padding;
                 border-right: $border;
-                border-left: $border;
+                //border-left: $border;
             }
 
             &:hover {
@@ -85,6 +74,7 @@ header {
         img {
             position: relative;
             top: 5px;
+            width: 150px;
         }
 
         padding: $padding $padding;
@@ -103,7 +93,7 @@ header {
         position: relative;
 
         a {
-            text-transform: uppercase;
+            text-transform: capitalize;
             text-decoration: none;
             font-weight: 300;
             color: #000;
@@ -116,6 +106,14 @@ header {
             }
         }
     }
+}
+
+.js .transparent {
+    opacity: 0;
+}
+
+.opaque {
+    opacity: initial;
 }
 
 /* .ruler {

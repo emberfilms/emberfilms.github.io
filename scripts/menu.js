@@ -81,8 +81,6 @@ $(function(){
         var dist = $(document).scrollTop(),
             offset = header[0].getBoundingClientRect().height;
 
-            console.log(offset);
-
         if( dist > offset ){
 
             if( dist > lastScrollTop ){

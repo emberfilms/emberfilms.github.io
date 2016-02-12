@@ -5,6 +5,7 @@ title:  "The Hunt is a long name"
 description: "some desc with an even longer desctiption"
 caption: "some desc with an even longer desctiption"
 thumbnail: "1.the-letter.jpg"
+logo: "sky.svg"
 
 permalink: the-bacon-2
 showcase: "yep"

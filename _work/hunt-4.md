@@ -5,6 +5,7 @@ title:  "The Hunt 4"
 description: "some desc"
 caption: "some intro"
 thumbnail: "4.herschel.jpg"
+logo: "sky.svg"
 
 permalink: the-hunt-4
 showcase: "yep"

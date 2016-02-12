@@ -1,12 +1,9 @@
-<div class="uk-width-1-1 uk-width-medium-1-2">
+<div class="uk-width-1-1 uk-width-medium-1-2 animateme scrollme" data-when="enter" data-translatex="{% if thecycle == 'odd' %}400{% else %}-800{% endif %}" data-from="1" data-to="0">
     <div>
         <div class="uk-panel">
             <a data-aspect="700:460" data-aspect-offset="4" href="">
                 <div class="bg" style="background-image: url(/assets/img/work/{{hero.thumbnail}})"></div>
-                <div class="caption">
-                    <h2>{{hero.title}}</h2>
-                    <span>{{hero.caption}}</span>
-                </div>
+                <img src="/assets/img/logos/{{hero.logo}}" alt="{{hero.title}}">
             </a>
         </div>
     </div>

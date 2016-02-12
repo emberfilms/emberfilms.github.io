@@ -5,6 +5,7 @@ title:  "The Hunt is a long name"
 description: "some desc"
 caption: "some intro"
 thumbnail: "the-hunt.jpg"
+logo: "sky.svg"
 
 permalink: the-hunt
 showcase: "yep"

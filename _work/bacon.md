@@ -5,6 +5,7 @@ title:  "The Hunt 1"
 description: "some desc with an even longer desctiption"
 caption: "some intro"
 thumbnail: "5.fade.jpg"
+logo: "sky.svg"
 
 permalink: the-bacon-1
 showcase: "yep"

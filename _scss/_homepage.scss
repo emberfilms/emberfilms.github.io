@@ -1,12 +1,13 @@
 #showreel-container {
 
-   // background-image: url('/assets/img/common/homepage-hero.jpg');
     background-size: cover;
     background-position: bottom center;
 
     position: relative;
 
     margin-top: 0px;
+    width: 100%;
+    text-align: center;
 
     #play-showreel {
 
@@ -86,7 +87,8 @@
         width: 600px;
         width: 30vw;
 
-        transform: translate(-50%, -50%);
+        margin-left: -300px;
+        margin-left: -15vw;
     }
 }
 
@@ -96,18 +98,22 @@
     h2 {
         font-family: 'Montserrat';
         font-weight: 100;
-        font-size: 36px;
-        line-height: 51px;
+        font-size: 33px;
+        line-height: 49px;
         text-align: center;
         color: #000;
         max-width: 980px;
         margin: 0 auto;
 
+        span {
+            color: $orange;
+        }
+
         &:after {
             display: block;
             background: $orange;
             height: 2px;
-            width: 80px;
+            width: 50px;
             content: "";
             margin: 70px auto 0 auto;
         }
@@ -137,25 +143,7 @@
 
             .bg {
                 transform: scale(1.1);
-                filter: grayscale(100%) brightness(80%);
-            }
-
-            img {
-                opacity: 0;
-                filter: saturate(100%) brightness(80%);
-            }
-
-            .caption {
-
-                h3 {
-                    opacity: 1;
-                    transform: translateY(0px);
-                }
-
-                span {
-                    opacity: 1;
-                    transform: translateY(0px);
-                }
+                filter: none;
             }
         }
     }
@@ -172,7 +160,7 @@
         background-position: center center;
 
         transition: all .5s ease;
-        filter: none;
+        filter: grayscale(100%) brightness(80%);;
     }
 
     img {
@@ -182,7 +170,7 @@
         transform: translate(-50%, -50%);
         z-index: 2;
 
-        width: 200px;
+        width: 100px;
         height: auto;
 
         transition: all .5s ease;
@@ -311,15 +299,12 @@
         margin: 0 auto 70px auto;
     }
 
-    ul {
+    .uk-panel {
 
-        li {
+        text-align: center;
 
-            text-align: center;
-
-            img {
-                max-width: 65%;
-            }
+        img {
+            max-width: 100%;
         }
     }
 }

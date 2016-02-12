@@ -11,142 +11,103 @@ logos:
       logo: sky-black.svg
     - title: "some 3"
       logo: sky-black.svg
+    - title: "some company"
+      logo: sky-black.svg
+    - title: "some 2"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some company"
+      logo: sky-black.svg
+    - title: "some 2"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some company"
+      logo: sky-black.svg
+    - title: "some 2"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
+    - title: "some 3"
+      logo: sky-black.svg
 
 ---
 
 {% assign rows = site.work | where: "showcase","yep" | sort: "row" | group_by: "row" %}
 
-<section id="showreel-container">
+<section id="showreel-container" class="scrollme">
 
         <video width="100%" autoplay preload="auto" data-aspect="1430:550">
             <source src="{{page.showreel}}" type="video/mp4">
         </video>
 
-        <img src="/assets/img/common/inspired-overlay.svg">
+        <img class="animateme" src="/assets/img/common/inspired-overlay.svg" data-when="exit" data-opacity="0" data-from="0" data-to="0.5" data-easing="easeinout">
 
 </section>
 
-<section id="value-prop" class="uk-container-center uk-container">
+<section id="value-prop" class="uk-container-center uk-container scrollme">
 
-    <div class="uk-block">
-        <div class="prop-text uk-panel" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-            <h2>Ember is an emmy award-winning production company devoted to creating visually stunning content for broadcast, cinema and the web.</h2>
+    <div class="uk-block animateme" data-when="span" data-opacity="0" data-from="0" data-to="1" data-easing="easeinout">
+        <div class="prop-text uk-panel" data-uk-scrolls1py="{cls:'uk-animation-slide-bottom', topoffset: -300}">
+            <h2>Ember is an <span>emmy award-winning</span> production company devoted to creating visually stunning content for broadcast, cinema and the web.</h2>
         </div>
     </div>
 </section>
 
-<section id="showcase">
+<section id="showcase" class="scrollme">
 
     <div class="uk-container uk-container-center">
 
         <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Recent Work</h2>
 
-        <div class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+        {% for row in rows %}
+        {% assign ordered_row = row.items | sort: "position" %}
+        {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+        {% assign hero = ordered_row[0] %}
 
-            <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-                <div class="uk-panel">
-                    <a data-aspect="16:9" href="/">
-                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
-                        <img src="/assets/img/logos/sky.svg" alt="svg">
-                        <div class="caption">
-                            <h3>Hidden Kingdoms</h3>
-                            <span>BBC</span>
-                        </div>
-                    </a>
-                </div>
+            {% if thecycle == 'odd' %}
+            <div class="uk-grid uk-grid-small">
+                {% include showcase_hero.html %}
+                {% include showcase_grid.html %}
             </div>
+            {% endif %}
 
-            <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-                <div class="uk-panel">
-                    <a data-aspect="16:9" href="/">
-                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
-                        <img src="/assets/img/logos/sky.svg" alt="svg">
-                        <div class="caption">
-                            <h3>Hidden Kingdoms</h3>
-                            <span>BBC</span>
-                        </div>
-                    </a>
-                </div>
+            {% if thecycle == 'even' %}
+            <div class="uk-grid uk-grid-small">
+                {% include showcase_grid.html %}
+                {% include showcase_hero.html %}
             </div>
+            {% endif %}
 
-            <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-                <div class="uk-panel">
-                    <a data-aspect="16:9" href="/">
-                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
-                        <img src="/assets/img/logos/sky.svg" alt="svg">
-                        <div class="caption">
-                            <h3>Hidden Kingdoms</h3>
-                            <span>BBC</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-                <div class="uk-panel">
-                    <a data-aspect="16:9" href="/">
-                        <div class="bg" style="background-image: url(/assets/img/work/17.hidden-kingdoms.jpg)"></div>
-                        <img src="/assets/img/logos/sky.svg" alt="svg">
-                        <div class="caption">
-                            <h3>Hidden Kingdoms</h3>
-                            <span>BBC</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        {% endfor %}
 
     </div>
-</section>
-
-<section id="our-studio" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-
-    <div class="uk-block">
-        <div class="uk-container uk-container-center">
-
-            <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Our Studio</h2>
-            <p data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Ember Studios is our purpose built film studio equiped with the latest lardie dars ready to be rented out and equipment hire.</p>
-
-        </div>
-    </div>
-
-    <div class="slider" data-aspect="3:1" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
-
-        <div class="uk-container uk-container-center uk-position-relative">
-
-            <div class="caption">
-                <div class="title" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Studio</div>
-                <div class="subtitle" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Green Screen</div>
-                <i class="left"></i>
-                <i class="right"></i>
-            </div>
-
-        </div>
-
-    </div>
-
 </section>
 
 <section id="clients" class="uk-container-center uk-container">
 
     <div class="uk-block uk-text-center">
 
-        <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Our Clients</h2>
+        <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom', topoffset: -100, repeat: true}">Our Clients</h2>
 
-        <div data-uk-slider data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
+        <div class="uk-grid uk-grid-width-1-4 uk-grid-width-medium-1-6" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', topoffset: -100, repeat: true}">
 
-            <div class="uk-slider-container">
-                <ul class="uk-slider uk-grid-width-medium-1-5">
-
-                    {% for l in page.logos %}
-                    <li>
-                        <img src="/assets/img/logos/{{l.logo}}" alt="{{l.title}}">
-                    </li>
-                    {% endfor %}
-
-                </ul>
+            {% for l in page.logos %}
+            <div>
+                <div class="uk-panel uk-panel-space">
+                    <img src="/assets/img/logos/{{l.logo}}" alt="{{l.title}}">
+                </div>
             </div>
+            {% endfor %}
 
         </div>
 
