@@ -50,14 +50,14 @@ logos:
             <source src="{{page.showreel}}" type="video/mp4">
         </video>
 
-        <img class="animateme" src="/assets/img/common/inspired-overlay.svg" data-when="exit" data-opacity="0" data-from="0" data-to="0.5" data-easing="easeinout">
+        <img class="animateme" src="/assets/img/common/inspired-overlay.svg" data-when="exit" data-opacity="0" data-from="0" data-to="0.5" data-easing="easeinout" />
 
 </section>
 
 <section id="value-prop" class="uk-container-center uk-container scrollme">
 
     <div class="uk-block animateme" data-when="span" data-opacity="0" data-from="0" data-to="1" data-easing="easeinout">
-        <div class="prop-text uk-panel" data-uk-scrolls1py="{cls:'uk-animation-slide-bottom', topoffset: -300}">
+        <div class="prop-text uk-panel">
             <h2>Ember is an <span>emmy award-winning</span> production company devoted to creating visually stunning content for broadcast, cinema and the web.</h2>
         </div>
     </div>
@@ -67,7 +67,7 @@ logos:
 
     <div class="uk-container uk-container-center">
 
-        <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Recent Work</h2>
+        <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">Our Work</h2>
 
         {% for row in rows %}
         {% assign ordered_row = row.items | sort: "position" %}
@@ -75,14 +75,14 @@ logos:
         {% assign hero = ordered_row[0] %}
 
             {% if thecycle == 'odd' %}
-            <div class="uk-grid uk-grid-small">
+            <div class="uk-grid uk-grid-small animateme" data-when="enter" data-translatex="400" data-from="1" data-to="0">
                 {% include showcase_hero.html %}
                 {% include showcase_grid.html %}
             </div>
             {% endif %}
 
             {% if thecycle == 'even' %}
-            <div class="uk-grid uk-grid-small">
+            <div class="uk-grid uk-grid-small animateme" data-when="enter" data-translatex="-800" data-from="1" data-to="0">
                 {% include showcase_grid.html %}
                 {% include showcase_hero.html %}
             </div>
@@ -91,15 +91,16 @@ logos:
         {% endfor %}
 
     </div>
+
 </section>
 
-<section id="clients" class="uk-container-center uk-container">
+<section id="clients" class="uk-container-center uk-container ">
 
-    <div class="uk-block uk-text-center">
+    <div class="uk-block uk-text-center scrollme">
 
         <h2 data-uk-scrollspy="{cls:'uk-animation-slide-bottom', topoffset: -100, repeat: true}">Our Clients</h2>
 
-        <div class="uk-grid uk-grid-width-1-4 uk-grid-width-medium-1-6" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', topoffset: -100, repeat: true}">
+        <div class="uk-grid uk-grid-width-1-4 uk-grid-width-medium-1-6 animateme" data-when="enter" data-translatey="500" data-from="1" data-to="0">
 
             {% for l in page.logos %}
             <div>
