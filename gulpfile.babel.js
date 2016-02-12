@@ -57,7 +57,6 @@ function lint(files) {
         },
         "globals" : {
             "$": true,
-            "Modernizr": true,
             "_": true,
             "$f": true
         },
