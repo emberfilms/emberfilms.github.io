@@ -108,7 +108,7 @@ gulp.task('minify', () => {
     * and we pull out the .js and css files
     * we then concatinate them and minify
     */
-    gulp.src( env + '/**/*.html')
+    return gulp.src( env + '/**/*.html')
     .pipe($.useref({searchPath: ['.tmp', env, '.', 'scripts', 'assets/css', 'assets/js']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.html', $.htmlmin({
@@ -116,6 +116,10 @@ gulp.task('minify', () => {
         removeComments: true
     })))
     .pipe(gulp.dest(env));
+
+});
+
+gulp.task('minify-sass', () => {
 
     /*
     * Once everythings extracted we minify the sass
@@ -151,7 +155,7 @@ gulp.task('images', () => {
 gulp.task('extras', () => {
     return gulp.src([
         env + '/*.*',
-        '!' + env + '/*.html'
+        '!' + env + '/**/*.html'
         ], {
         dot: true
     }).pipe(gulp.dest(env));
@@ -262,7 +266,7 @@ gulp.task('wiredep', () => {
 * Alias task to force order running
 */
 gulp.task('build', (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'images'], 'styles', ['minify', 'extras'], 'inline-critical', cb);
+    return rs('clean', ['lint', 'jekyll', 'images'], 'styles', ['extras', 'minify'], 'minify-sass','inline-critical', cb);
 });
 
 /*
