@@ -108,7 +108,7 @@ gulp.task('minify', () => {
     * and we pull out the .js and css files
     * we then concatinate them and minify
     */
-    gulp.src( env + '/*.html')
+    gulp.src( env + '/**/*.html')
     .pipe($.useref({searchPath: ['.tmp', env, '.', 'scripts', 'assets/css', 'assets/js']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.html', $.htmlmin({
@@ -262,7 +262,7 @@ gulp.task('wiredep', () => {
 * Alias task to force order running
 */
 gulp.task('build', (cb) => {
-    return rs('clean', ['lint', 'jekyll', 'images'], 'styles', ['minify', 'extras'],'inline-critical', cb);
+    return rs('clean', ['lint', 'jekyll', 'images'], 'styles', ['minify', 'extras'], 'inline-critical', cb);
 });
 
 /*
