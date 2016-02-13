@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="no-js loading">
+    {% include header.html %}
+
+    {% if page.hero-font-size %}
+    <style type="text/css">
+    .service-inner #hero svg {
+        font-size: {{page.hero-font-size}};
+    }
+    </style>
+    {% endif %}
+    <body class="service-inner {{page.url | slugify}}">
+
+    {% include loader.html %}
+    {% include nav.html %}
+
+    <div id="main-container">
+
+        <div class="uk-container uk-container-center">
+
+            <section id="hero">
+
+                <svg>
+
+                     <pattern id="hero-bg" patternUnits="userSpaceOnUse" width="300" height="200">
+                         <image xlink:href="http://dev.designbycy.com/u/demo.gif" width="300" height="200"/>
+                    </pattern>
+
+                    <text text-anchor="middle" x="50%" y="50%" dy="15px" class="hero-text">
+                        Photography
+                    </text>
+
+                </svg>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    {% include footer.html %}
+    </body>
+</html>

@@ -143,3 +143,11 @@ header {
         display: none;
     }
 }
+
+body.services {
+    .services-transparent {
+        .js & {
+            opacity: 0;
+        }
+    }
+}
