@@ -16,8 +16,8 @@ const pkg = require('./package.json');
 var env = argv.env || pkg.config.dev_destination;
 
 gulp.on('err', function(err){
-    throw Error('Build Failed');
     process.exit(1);
+    throw Error('Build Failed');
 });
 
 /*
