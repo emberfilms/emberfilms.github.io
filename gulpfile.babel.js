@@ -278,7 +278,6 @@ gulp.task('default', ['clean'], () => {
 */
 gulp.task('precommit', ['clean'], (cb) => {
   env = pkg.config.dist_destination;
-  console.log('Gulp - Pre-Commit task running');
-  return rs('clean', ['lint', 'jekyll'], 'styles', 'minify', cb);
+  return rs('clean', ['lint', 'jekyll'], 'styles');
 });
 
