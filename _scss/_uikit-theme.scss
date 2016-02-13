@@ -1,3 +1,23 @@
+body {
+    overflow-x: hidden;
+}
+
+#main-container {
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 1;
+}
+
+.transparent {
+    .js & {
+        opacity: 0;
+    }
+}
+
+.opaque {
+    opacity: initial;
+}
+
 @media (min-width: 1500px){
     .uk-container {
         max-width: 1500px;

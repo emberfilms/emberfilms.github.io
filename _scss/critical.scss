@@ -91,6 +91,7 @@ header {
     .nav {
         padding: 0 $padding;
         position: relative;
+        height: 40px;
 
         a {
             text-transform: capitalize;
@@ -124,3 +125,21 @@ header {
     height: 1px;
     background: red;
 } */
+
+/* Critical Services */
+#services {
+
+    background-image: url('/assets/img/common/winter-bg.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media(min-width: $medium-min){
+        background-attachment: fixed;
+        min-height: 650px;
+    }
+
+    #close-services {
+        display: none;
+    }
+}

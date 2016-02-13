@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js loading">
     {% include header.html %}
-    <body class="{{page.permalink | slugify}}">
+    <body class="{% if page.url != '/' %} {{page.url | slugify}} {% else %}home{% endif %}">
 
     {% include loader.html %}
     {% include nav.html %}

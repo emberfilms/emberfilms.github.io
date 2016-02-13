@@ -32,7 +32,7 @@ permalink: /blog/:title/
 collections:
     work:
         output: true
-    showreels:
+    services:
         output: true
 
 # The release of Jekyll Now that you're using

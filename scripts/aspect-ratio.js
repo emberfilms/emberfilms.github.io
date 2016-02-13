@@ -39,4 +39,5 @@ $(function(){
     }
 
     $(window).on('resize load ready', _.debounce(calculate, 200));
+    $(document).on('calculateAspectRatios', _.debounce(calculate, 700, true));
 });

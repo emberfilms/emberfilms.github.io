@@ -15,17 +15,20 @@
     </div>
 
     <div class="logo uk-container-center uk-container" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay: 1000}">
-        <img src="/assets/img/common/logo.svg" alt="Ember Films">
+        <a href="/">
+            <img src="/assets/img/common/logo.svg" alt="Ember Films">
+        </a>
     </div>
 
     <nav class="nav uk-container-center uk-container" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay: 1000}">
-        <a href="#showcase" data-uk-smooth-scroll="{offset: 50}">Work</a>
-        <a href="/reels">Services</a>
-        <a href="/reels">About</a>
-        <a href="/reels">Blog</a>
-        <a href="/reels">Contact</a>
+        <a {% if page.url == '/' %}class="active"{%endif%}href="/#showcase" {% if page.is_home %}data-uk-smooth-scroll="{offset: 50}"{% endif %}>Work</a>
+        <a {% if page.url == '/services/' %}class="active"{%endif%} href="/services/" id="services-link">Services</a>
+        <a {% if page.url == '/about/' %}class="active"{%endif%} href="/about/">About</a>
+        <a {% if page.url == '/blog/' %}class="active"{%endif%} href="/blog/">Blog</a>
+        <a {% if page.url == '/contact/' %}class="active"{%endif%} href="/contact/">Contact</a>
 
         <div data-navigation-underline></div>
+
     </nav>
 
 </header>
