@@ -1,7 +1,22 @@
+/*
+* Underline animation
+*/
+$(function(){
 
+    var $elem     = $('[data-navigation-underline]'),
+    nav           = $elem.parent(),
+    items         = nav.find('a'),
+    bar           = $elem,
+    modifier      = 10,
     moveUnderline = function( ev, item ){
 
-        var href =
+        var href = item || $(this),
+        link     = href.find('span'),
+        marginL  = parseInt(link.css('marginLeft')),
+        paddingL = 0,
+        left     = (link.position().left + marginL) + paddingL + (modifier / 2),
+        width    = link.width() - modifier;
+
         if( !link.find('img').length ){
 
             bar.css({
