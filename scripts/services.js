@@ -22,7 +22,7 @@ $(function(){
 */
 $(function(){
 
-    var link = $('#services-link');
+    var link = $('.services-link');
 
     if( link.length ){
 
@@ -31,6 +31,8 @@ $(function(){
             if( document.location.pathname !== '/services/' ){
                 e.preventDefault();
             }
+
+            $('html').addClass('services-open');
 
             var thisLink = $('.nav .active');
             var overlay = $('<div id="services-overlay" />');

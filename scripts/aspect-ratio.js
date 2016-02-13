@@ -9,11 +9,13 @@ $(function(){
             var element = $(this),
             ratio = element.data('aspect').split(':'),
             boundry = element.data('aspect-boundry') || 'width',
+            padding = parseInt($(this).parent().css('padding-left')),
             diff, height, width;
 
             if( boundry === 'width' ){
+
                 diff = ratio[1] / ratio[0];
-                width = $(this).parent()[0].getBoundingClientRect().width;
+                width = $(this).parent()[0].getBoundingClientRect().width - (padding * 2);
                 height = width * diff;
             }
             else {

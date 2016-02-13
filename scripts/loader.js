@@ -15,7 +15,7 @@ $(function(){
     };
 
     if( html.hasClass('mobile') ){
-        loaded();
+        setTimeout(loaded, 5000);
     }
     else {
         setTimeout(loaded, 5000);

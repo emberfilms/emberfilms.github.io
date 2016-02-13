@@ -3,9 +3,22 @@ body {
 }
 
 #main-container {
-    margin-bottom: -50px;
     position: relative;
     z-index: 1;
+
+    &:not(.footer-padding){
+        margin-bottom: -50px;
+    }
+
+    a,
+    .uk-link {
+        color: $orange;
+        transition: color .5s ease;
+
+        &:hover {
+            color: #1D181C;
+        }
+    }
 }
 
 .transparent {

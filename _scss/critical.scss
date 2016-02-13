@@ -27,9 +27,11 @@ header {
 
         .uk-container {
             height: $height;
-            //border-left: $border;
-            //border-right: $border;
             padding: 0 $padding;
+
+            @media(min-width: $xlarge-min){
+                padding: 0 35px;
+            }
         }
 
         a {
@@ -83,6 +85,10 @@ header {
         font-size: 30px;
         font-weight: 100;
 
+        @media(min-width: $xlarge-min){
+            padding: $padding 35px;
+        }
+
         strong {
             font-weight: 400;
         }
@@ -92,6 +98,10 @@ header {
         padding: 0 $padding;
         position: relative;
         height: 40px;
+
+        @media(min-width: $xlarge-min){
+            padding: 0 35px;
+        }
 
         a {
             text-transform: capitalize;

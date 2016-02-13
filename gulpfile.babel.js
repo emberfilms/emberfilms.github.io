@@ -175,7 +175,7 @@ gulp.task('serve', ['clean','jekyll'], (done) => {
         port: 9000,
         open: false,
         server: {
-            baseDir: [env, '.'],
+            baseDir: [env, '.', 'assets'],
             routes: {
                 '/bower_components': 'bower_components'
             }
