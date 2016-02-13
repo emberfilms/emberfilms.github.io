@@ -6,6 +6,7 @@ import cp from 'child_process';
 import {stream as wiredep} from 'wiredep';
 import fs from 'fs';
 import rs from 'run-sequence';
+
 var argv = require('yargs').argv;
 
 const $ = gulpLoadPlugins();
@@ -13,6 +14,10 @@ const reload = browserSync.reload;
 const pkg = require('./package.json');
 
 var env = argv.env || pkg.config.dev_destination;
+
+gulp.on('err', function(err){
+    process.exit(1);
+});
 
 /*
 * Compiles Jekyll then refreshes once done
