@@ -1,15 +1,4 @@
-'use strict';
 
-/*
-* Underline animation
-*/
-$(function(){
-
-    var $elem     = $('[data-navigation-underline]'),
-    nav           = $elem.parent(),
-    items         = nav.find('a'),
-    bar           = $elem,
-    modifier      = 10,
     moveUnderline = function( ev, item ){
 
         var href = item || $(this),
