@@ -1,13 +1,7 @@
 
     moveUnderline = function( ev, item ){
 
-        var href = item || $(this),
-        link     = href.find('span'),
-        marginL  = parseInt(link.css('marginLeft')),
-        paddingL = 0,
-        left     = (link.position().left + marginL) + paddingL + (modifier / 2),
-        width    = link.width() - modifier;
-
+        var href =
         if( !link.find('img').length ){
 
             bar.css({
