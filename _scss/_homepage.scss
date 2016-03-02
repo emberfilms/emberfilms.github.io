@@ -90,7 +90,7 @@
         &:hover {
 
             .bg {
-                transform: scale(1.1);
+                transform: scale(1.02);
                 filter: none;
             }
         }
@@ -107,7 +107,7 @@
         background-size: cover;
         background-position: center center;
 
-        transition: all .5s ease;
+        transition: all .8s ease;
         filter: grayscale(100%) brightness(80%);;
     }
 

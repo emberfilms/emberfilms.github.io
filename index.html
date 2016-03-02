@@ -64,7 +64,7 @@ logos:
     </div>
 </section>
 
-<section id="showcase" class="scrollme">
+<section id="showcase">
 
     <div class="uk-container uk-container-center">
 
@@ -76,14 +76,14 @@ logos:
         {% assign hero = ordered_row[0] %}
 
             {% if thecycle == 'odd' %}
-            <div class="uk-grid uk-grid-small animateme" data-when="enter" data-translatex="400" data-from="1" data-to="0">
+            <div class="uk-grid uk-grid-small">
                 {% include showcase_hero.html %}
                 {% include showcase_grid.html %}
             </div>
             {% endif %}
 
             {% if thecycle == 'even' %}
-            <div class="uk-grid uk-grid-small animateme" data-when="enter" data-translatex="-800" data-from="1" data-to="0">
+            <div class="uk-grid uk-grid-small">
                 {% include showcase_grid.html %}
                 {% include showcase_hero.html %}
             </div>

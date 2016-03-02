@@ -71,11 +71,16 @@ header {
         }
     }
 
+    .header-bar {
+        .uk-grid {
+            display: block;
+        }
+    }
+
     .logo {
 
         img {
-            position: relative;
-            top: 5px;
+            display: block;
             width: 150px;
         }
 
@@ -95,25 +100,22 @@ header {
     }
 
     .nav {
-        padding: 0 $padding;
+        margin-top: $padding * 1.5;
         position: relative;
         height: 40px;
 
-        @media(min-width: $xlarge-min){
-            padding: 0 35px;
-        }
-
         a {
+            float: right;
             text-transform: capitalize;
             text-decoration: none;
             font-weight: 300;
             color: #000;
             font-size: 13px;
             letter-spacing: 1px;
-            padding-right: $padding;
+            padding-left: $padding;
 
             &:last-child {
-                padding-right: 0;
+                padding-left: 0;
             }
         }
     }
