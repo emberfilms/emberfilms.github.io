@@ -25,11 +25,11 @@
             </div>
 
             <nav class="nav uk-width-1-1 uk-width-medium-4-10 uk-float-right" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay: 1000}">
-                <a {% if page.url == '/' %}class="active"{%endif%}href="/#showcase" {% if page.is_home %}data-uk-smooth-scroll="{offset: 50}"{% endif %}>Work</a>
-                <a {% if page.url == '/services/' %}class="active services-link"{%else%}class="services-link"{%endif%} href="/services/">Services</a>
-                <a {% if page.url == '/about/' %}class="active"{%endif%} href="/about/">About</a>
-                <a {% if page.url == '/blog/' %}class="active"{%endif%} href="/blog/">Blog</a>
                 <a {% if page.url == '/contact/' %}class="active"{%endif%} href="/contact/">Contact</a>
+                <a {% if page.url == '/blog/' %}class="active"{%endif%} href="/blog/">Blog</a>
+                <a {% if page.url == '/about/' %}class="active"{%endif%} href="/about/">About</a>
+                <a {% if page.url == '/services/' %}class="active services-link"{%else%}class="services-link"{%endif%} href="/services/">Services</a>
+                <a {% if page.url == '/' %}class="active"{%endif%}href="/#showcase" {% if page.is_home %}data-uk-smooth-scroll="{offset: 50}"{% endif %}>Work</a>
 
                 <div data-navigation-underline></div>
 
